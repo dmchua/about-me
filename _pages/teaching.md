@@ -4,6 +4,13 @@ title: "Teaching"
 permalink: /teaching/
 author_profile: true
 ---
+## Certificates
+
+**Certificate in Teaching and Learning in Higher Education** <br>
+Centre for the Enhancement of Teaching and Learning (CETL) <br>
+The University of Hong Kong <br>
+Completed in May 2022
+
 ## Undergraduate Teaching
 
 <u> University of the Philippines Manila </u> <br>
