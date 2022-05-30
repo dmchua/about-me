@@ -7,12 +7,14 @@ redirect_from:
   - /about/
   - /about.html
 ---
-Hello!
+Hello! <br> <br> I'm Denise, a doctoral student at the [Swallowing Research Laboratory](https://swallow.edu.hku.hk/) of the University of Hong Kong. 
 
 
 ## My research interest
+Throughout the years as a young academician and clinician, I have developed a strong interest in the field of swallowing and dysphagia. 
+
+At present, I am particularly interested in the effects of swallowing exercises on the elderly brain. Specific regions of the cortex related to swallowing have been found to be deactived with age. In relation to this, my proposed dissertation involves the use of a non-invasive brain imaging technique called functional near-infrared spectroscopy (fNIRS) to evaluate the potential use of various swallowing exercises to prevent and/or reverse age-related neural changes. 
 
 
-
-## My background and history
-
+## My background and experience
+I obtained my Bachelor's degree in Speech Pathology from the University of the Philippines Manila in 2017. After graduation, I became an instructor at the same university doing undergraduate classroom teaching and clinical supervision for two years. I also had my own private practice catering to home-based clients during this time. Before pursuing my postgraduate studies in 2020, I transitioned to the hospital setting and served as a full-time clinician seeing both in and out-patients across varied age groups. 
