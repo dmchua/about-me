@@ -38,6 +38,6 @@ Completed in May 2022
 
 **The Aging Swallow** <br>
 April 19, 2022 <br>
-Dysphagia Certificate Program 2022 <br>
+Postgraduate Dysphagia Certificate Program 2022 <br>
 College of Allied Medical Professions <br>
 University of the Philippines Manila <br>
