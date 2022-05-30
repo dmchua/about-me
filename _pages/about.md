@@ -7,7 +7,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
-Hello! I'm Denise, a doctoral student at the [Swallowing Research Laboratory](https://swallow.edu.hku.hk/) of the University of Hong Kong. 
+Hello! I'm Denise, a doctoral student at the [Swallowing Research Laboratory](https://swallow.edu.hku.hk/) of the University of Hong Kong. I'm currently on my 2nd year and my anticipated graduation is on 2024.  
 
 
 ## My research interest
