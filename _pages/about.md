@@ -7,7 +7,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
-Hello! <br> <br> I'm Denise, a doctoral student at the [Swallowing Research Laboratory](https://swallow.edu.hku.hk/) of the University of Hong Kong. 
+Hello! I'm Denise, a doctoral student at the [Swallowing Research Laboratory](https://swallow.edu.hku.hk/) of the University of Hong Kong. 
 
 
 ## My research interest
