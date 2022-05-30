@@ -20,9 +20,12 @@ College of Allied Medical Professions </u>
 
 ## Invited Lectures
 
-**"The Aging Swallow"** <br>
+**The Aging Swallow** <br>
 Dysphagia Graduate Course, April 2022 <br>
 College of Allied Medical Professions <br>
 University of the Philippines Manila 
 
-
+**Dysphagia Assessment and Management** <br>
+SP 158 Introduction to Clinical Training, August 2020 <br>
+College of Allied Medical Professions <br>
+University of the Philippines Manila 
