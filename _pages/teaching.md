@@ -19,7 +19,7 @@ Completed in May 2022
 **OPST 199.1** Methods of Research for OT, PT and SP <br>
 **SP 158** Introduction to Clinical Training <br>
 
-<i> A.Y. 2018-2019 (Instructor III) </i> <br>
+<i> A.Y. 2018-2019 (Instructor) </i> <br>
 **SP 131** Anatomy, Neuroanatomy, and Physiology for Speech Pathology <br>
 **SP 114** Neuroanatomy for Speech Pathology Students <br>
 **OPST 195** Foundations of Research Literacy <br>
@@ -27,7 +27,7 @@ Completed in May 2022
 **OPST 199.2** Research Proposal Writing <br>
 **SP 200** Undergraduate Thesis
 
-<i> A.Y. 2017-2018 (Instructor III) </i> <br>
+<i> A.Y. 2017-2018 (Instructor) </i> <br>
 **SP 102** Anatomy and Physiology of the Speech and Hearing Mechanism <br>
 **SP 116** Communication Disorders Related to Cleft Lip and Palate and Other Craniofacial Anomalies <br>
 **SP 128** Medical Rehabilitation Lectures in Speech Pathology <br>
