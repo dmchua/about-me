@@ -11,4 +11,4 @@ redirect_from:
 {% capture written_label %}'None'{% endcapture %}
 
 
-<embed src="DMNChua CV Updated.pdf" type="application/pdf" width="100%" />
+<embed src="https://github.com/dnsemae/dmchua.github.io/blob/master/DMNChua%20CV%20Updated.pdf" type="application/pdf" width="100%" />
