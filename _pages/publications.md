@@ -8,7 +8,7 @@ author_profile: true
 
 **Effects of Oropharyngeal Exercises on the Swallowing Function of Older Adults: A Systematic Review** <br>
 <u> Chua, DMN.</u>, Chan, KMK., Choi, YY. <br>
-Poster presentation
+Poster presentation <br>
 Dysphagia Research Society 30th Virtual Annual Meeting, 2022 <br>
 
 **Normative Cross-sectional Studies on Voice: A Systematic Review** <br>
