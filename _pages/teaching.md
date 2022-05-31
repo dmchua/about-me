@@ -15,7 +15,7 @@ Completed in May 2022
 
 <u> University of the Philippines Manila </u> <br>
 
-<i> A.Y. 2020-2021 (Invited Lecturer) </i> <br>
+<i> A.Y. 2020-2021 (Guest Lecturer) </i> <br>
 **OPST 199.1** Methods of Research for OT, PT and SP <br>
 **SP 158** Introduction to Clinical Training <br>
 
