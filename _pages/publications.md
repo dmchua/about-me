@@ -7,13 +7,13 @@ author_profile: true
 ## Conference papers
 
 **Effects of Oropharyngeal Exercises on the Swallowing Function of Older Adults: A Systematic Review** <br>
-<u> Chua, DMN. </u>, Chan, KMK., Choi, YY. <br>
+<u> Chua, DMN.</u>, Chan, KMK., Choi, YY. <br>
 Poster presentation
 March 15-18, 2022 <br>
 Dysphagia Research Society 30th Virtual Annual Meeting <br>
 
 **Normative Cross-sectional Studies on Voice: A Systematic Review** <br>
-Bayona, HHG., <u> Chua, DMN. </u>, Posadas, JHC., Austria, BAD., Dano-og, MCL., Lazaro, CCA., Lopez, AL., Millo, JAG. <br>
+Bayona, HHG., <u> Chua, DMN.</u>, Posadas, JHC., Austria, BAD., Dano-og, MCL., Lazaro, CCA., Lopez, AL., Millo, JAG. <br>
 Poster presentation <br>
 June 2018 <br>
 Philippine Association of Speech Pathologists Convention <br>
