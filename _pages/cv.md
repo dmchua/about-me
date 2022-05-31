@@ -10,7 +10,4 @@ redirect_from:
 {% include base_path %}
 {% capture written_label %}'None'{% endcapture %}
 
-If the embedded PDF below does not load, you can <u><a href="">download it here.</a></u>
-<br/>
-
-<embed src="" type="application/pdf" width="100%" />
+<embed src="DMNChua CV Updated.pdf" type="application/pdf" width="100%" />
