@@ -4,7 +4,7 @@ title: "Research"
 permalink: /research/
 author_profile: true
 ---
-## Conference Papers
+## Conference papers
 
 **Effects of Oropharyngeal Exercises on the Swallowing Function of Older Adults: A Systematic Review** <br>
 Poster presentation <br>
