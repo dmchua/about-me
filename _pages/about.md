@@ -11,7 +11,7 @@ Hello! I'm Denise, a 2nd year Ph.D. student at the [Swallowing Research Laborato
 
 
 ## My research interest
-Throughout the years as a young academic and clinician, I have developed a strong interest in the field of swallowing and dysphagia. At present, I am particularly interested in the effects of swallowing exercises on the elderly brain. My proposed dissertation involves the use of functional near-infrared spectroscopy (fNIRS) to evaluate the potential use of various swallowing exercises in preventing and/or reversing neural changes that contribute to age-related swallowing changes. 
+Throughout the years as a young academic and clinician, I have developed a strong interest in the field of swallowing and dysphagia. At present, I am particularly interested in the effects of swallowing exercises on the elderly brain. My proposed dissertation involves the use of functional near-infrared spectroscopy (fNIRS) to evaluate the potential use of various swallowing exercises in delaying and/or reversing neural changes that contribute to age-related swallowing changes. 
 
 
 ## My background and experience
