@@ -5,4 +5,4 @@ permalink: /cv/
 author_profile: true
 ---
 
-<embed src="https://dnsemae.github.io/dmchua.github.io/DMNChua CV Updated.pdf" type="application/pdf" width="100%" />
+<embed src="https://dmchua.github.io/about-me/DMNChua CV Updated.pdf" type="application/pdf" width="100%" />
