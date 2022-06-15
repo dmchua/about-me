@@ -15,4 +15,6 @@ Throughout the years as a young academic and clinician, I have developed a stron
 
 
 ## My background and experience
-I obtained my Bachelor's degree in Speech Pathology from the University of the Philippines Manila in 2017. After graduation, I became an instructor at the same university doing undergraduate classroom teaching and clinical supervision for two years. I also had my own private practice catering to home-based clients during this time. Before pursuing my postgraduate studies in 2020, I transitioned to the hospital setting and served as a full-time clinician seeing both in and out-patients across varied age groups. 
+I obtained my Bachelor's degree in Speech Pathology from the University of the Philippines Manila in 2017. After graduation, I became an instructor at the same university doing undergraduate classroom teaching and clinical supervision for two years. I also had my own private practice catering to home-based clients during this time. Before pursuing my postgraduate studies in 2020, I transitioned to the hospital setting and served as a full-time clinician seeing both in and out-patients across varied age groups. <br>
+<br>
+In my free time, you'll find me lounging around at home catching up on new shows or playing with makeup. ☺️
