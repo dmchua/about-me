@@ -1,7 +1,7 @@
 ---
 layout: archive
 title: "Contact"
-permalink: /contact/
+permalink: contact/
 author_profile: true
 ---
 I am open for discussions and collaborations! ☺️
