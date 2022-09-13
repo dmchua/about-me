@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 ## Handouts
-- [Cranial Nerves for Swallowing Cheatsheet](https://dmchua.github.io/about-me/Muscles of Swallowing.pdf)
+- [Cranial Nerves for Swallowing Cheatsheet](Muscles of Swallowing.pdf)
 
 
-- [Muscles of Swallowing Cheatsheet](https://dmchua.github.io/about-me/Neuroanatomy of Swallowing_Cranial Nerves.pdf)
+- [Muscles of Swallowing Cheatsheet](Cranial Nerves.pdf)
