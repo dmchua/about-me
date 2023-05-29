@@ -7,11 +7,11 @@ redirect_from:
   - /about/
   - /about.html
 ---
-Hello! I'm Denise, a 3rd year Ph.D. student at the [Swallowing Research Laboratory](https://swallow.edu.hku.hk/) of the University of Hong Kong.  
+Hello! I'm Denise, a Ph.D. Candidate at the [Swallowing Research Laboratory](https://swallow.edu.hku.hk/) of the University of Hong Kong.  
 
 
 ## My research interest
-Throughout the years as a young academic and clinician, I have developed a strong interest in the field of swallowing and dysphagia. My current research focuses on the effects of swallowing exercises on the neurophysiology of healthy adults. Using functional near-infrared spectroscopy (fNIRS), I hope to provide stronger evidence on the potential use of these exercises in delaying and/or reversing neural changes that contribute to age-related swallowing changes. 
+Throughout the years as a young academic and clinician, I have developed a strong interest in the field of swallowing and dysphagia. My current research focuses on the effects of swallowing exercises on the neurophysiology of healthy adults. Using functional near-infrared spectroscopy (fNIRS), I am investigating the potential use of these exercises in delaying and/or reversing neural changes that contribute to age-related swallowing changes. 
 
 
 ## My background and experience
