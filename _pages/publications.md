@@ -1,4 +1,4 @@
-![image](https://github.com/dmchua/about-me/assets/89789164/b435fd49-95b9-43c2-85b9-2356d3fe0826)---
+---
 layout: archive
 title: "Research"
 permalink: research/
