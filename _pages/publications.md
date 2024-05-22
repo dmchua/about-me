@@ -4,7 +4,7 @@ title: "Research"
 permalink: research/
 author_profile: true
 ---
-## Jounral articles
+## Journal articles
 
 **Chua, DMN.**, Choi, YY., & Chan, KMK. (2023). Effects of oropharyngeal exercises on the swallowing mechanism of older adults: A systematic review. *International Journal of Speech-Language Pathology, 1–18*.  <br>
 
