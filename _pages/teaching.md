@@ -16,24 +16,24 @@ Completed in May 2022
 <u> The University of Hong Kong </u> <br>
 
 <i> A.Y. 2020-Present (Teaching Assistant) </i> <br>
-**SHSC4031** Dysphagia
+SHSC4031 Dysphagia
 
 <u> University of the Philippines Manila </u> <br>
 
 <i> A.Y. 2020-2021 (Guest Lecturer) </i> <br>
-**OPST 199.1** Methods of Research for OT, PT and SP <br>
-**SP 158** Introduction to Clinical Training <br>
+OPST 199.1 Methods of Research for OT, PT and SP <br>
+SP 158 Introduction to Clinical Training <br>
 
 <i> A.Y. 2017-2019 (Instructor) </i> <br>
-**SP 102** Anatomy and Physiology of the Speech and Hearing Mechanism <br>
-**SP 114** Neuroanatomy for Speech Pathology Students <br>
-**SP 131** Anatomy, Neuroanatomy, and Physiology for Speech Pathology <br>
-**SP 116** Communication Disorders Related to Cleft Lip and Palate and Other Craniofacial Anomalies <br>
-**SP 128** Medical Rehabilitation Lectures in Speech Pathology <br>
-**OPST 195** Foundations of Research Literacy <br>
-**OPST 199.1** Methods of Research for OT, PT and SP <br>
-**OPST 199.2** Research Proposal Writing <br>
-**SP 200** Undergraduate Thesis
+SP 102 Anatomy and Physiology of the Speech and Hearing Mechanism <br>
+SP 114 Neuroanatomy for Speech Pathology Students <br>
+SP 131 Anatomy, Neuroanatomy, and Physiology for Speech Pathology <br>
+SP 116 Communication Disorders Related to Cleft Lip and Palate and Other Craniofacial Anomalies <br>
+SP 128 Medical Rehabilitation Lectures in Speech Pathology <br>
+OPST 195 Foundations of Research Literacy <br>
+OPST 199.1 Methods of Research for OT, PT and SP <br>
+OPST 199.2 Research Proposal Writing <br>
+SP 200 Undergraduate Thesis
 
 ## Invited Lectures
 
