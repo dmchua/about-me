@@ -11,7 +11,12 @@ Centre for the Enhancement of Teaching and Learning (CETL) <br>
 The University of Hong Kong <br>
 Completed in May 2022
 
-## Undergraduate Teaching
+## Undergraduate Teaching List
+
+<u> The University of Hong Kong </u> <br>
+
+<i> A.Y. 2020-Present (Teaching Assistant) </i> <br>
+**SHSC4031** Dysphagia
 
 <u> University of the Philippines Manila </u> <br>
 
