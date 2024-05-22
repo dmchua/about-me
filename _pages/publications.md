@@ -1,20 +1,22 @@
----
+![image](https://github.com/dmchua/about-me/assets/89789164/b435fd49-95b9-43c2-85b9-2356d3fe0826)---
 layout: archive
 title: "Research"
 permalink: research/
 author_profile: true
 ---
+## Jounral articles
+
+<u> Chua, DMN.</u>, Choi, YY., & Chan, KMK. (2023). Effects of oropharyngeal exercises on the swallowing mechanism of older adults: A systematic review. International Journal of Speech-Language Pathology, 1–18.  <br>
+
+<u> Chua, DMN.</u> & Chan, KMK. (under review). Cortical Activation during Swallowing Exercise Tasks: An fNIRS Pilot Study.
+
+
 ## Conference papers
+<u> Chua, DMN.</u> & Chan, KMK. (2023). Cortical Activation during Swallowing Exercise Tasks: A Preliminary fNIRS Study. European Society for Swallowing Disorders 13th Annual Congress. <br>
 
-**Effects of Oropharyngeal Exercises on the Swallowing Function of Older Adults: A Systematic Review** <br>
-<u> Chua, DMN.</u>, Chan, KMK., Choi, YY. <br>
-Poster presentation <br>
-Dysphagia Research Society 30th Virtual Annual Meeting, 2022 <br>
+<u> Chua, DMN.</u>, Chan, KMK., Choi, YY. (2022). Effects of Oropharyngeal Exercises on the Swallowing Function of Older Adults: A Systematic Review. Dysphagia Research Society 30th Virtual Annual Meeting. <br>
 
-**Normative Cross-sectional Studies on Voice: A Systematic Review** <br>
-Bayona, HHG., <u> Chua, DMN.</u>, Posadas, JHC., Austria, BAD., Dano-og, MCL., Lazaro, CCA., Lopez, AL., Millo, JAG. <br>
-Poster presentation <br>
-Philippine Association of Speech Pathologists Convention, 2018 <br>
+Bayona, HHG., <u> Chua, DMN.</u>, Posadas, JHC., Austria, BAD., Dano-og, MCL., Lazaro, CCA., Lopez, AL., Millo, JAG. (2018). Normative Cross-sectional Studies on Voice: A Systematic Review. Philippine Association of Speech Pathologists Convention. <br>
 
 ## Unpublished work
 **Awareness, Knowledge, and Perceptions of Health Professionals Toward Speech-Language Pathology: An Integrative Review** <br>
