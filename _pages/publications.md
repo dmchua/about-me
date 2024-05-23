@@ -6,9 +6,9 @@ author_profile: true
 ---
 ## Journal articles
 
-**Chua, DMN.**, Choi, YY., & Chan, KMK. (2023). Effects of oropharyngeal exercises on the swallowing mechanism of older adults: A systematic review. *International Journal of Speech-Language Pathology, 1–18*.  <br>
-
 **Chua, DMN.** & Chan, KMK. (under review). Cortical Activation during Swallowing Exercise Tasks: An fNIRS Pilot Study.
+
+**Chua, DMN.**, Choi, YY., & Chan, KMK. (2023). Effects of oropharyngeal exercises on the swallowing mechanism of older adults: A systematic review. *International Journal of Speech-Language Pathology, 1–18*.  <br>
 
 
 ## Conference papers
