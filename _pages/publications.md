@@ -6,9 +6,9 @@ author_profile: true
 ---
 ## Journal articles
 
-**Chua, DMN.** & Chan, KMK. (under review). Cortical Activation during Swallowing Exercise Tasks: An fNIRS Pilot Study.
+**Chua, DMN.** & Chan, KMK. (2024). Cortical Activation during Swallowing Exercise Tasks: An fNIRS Pilot Study. *Dysphagia*. https://doi.org/10.1007/s00455-024-10730-1 <br>
 
-**Chua, DMN.**, Choi, YY., & Chan, KMK. (2023). Effects of oropharyngeal exercises on the swallowing mechanism of older adults: A systematic review. *International Journal of Speech-Language Pathology, 1–18*.  <br>
+**Chua, DMN.**, Choi, YY., & Chan, KMK. (2023). Effects of oropharyngeal exercises on the swallowing mechanism of older adults: A systematic review. *International Journal of Speech-Language Pathology, 1–18*. https://doi.org/10.1080/17549507.2023.2221409 <br>
 
 
 ## Conference papers
