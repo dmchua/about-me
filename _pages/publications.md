@@ -12,6 +12,9 @@ author_profile: true
 
 
 ## Conference papers
+**Chua, DMN.** & Chan, K. M. K. (2025). Neural effects of action observation priming on effortful swallowing in healthy adults. *Dysphagia Research Society (DRS) 33rd Annual Meeting*. <br>
+
+
 **Chua, DMN.** & Chan, KMK. (2023). Cortical Activation during Swallowing Exercise Tasks: A Preliminary fNIRS Study. *European Society for Swallowing Disorders (ESSD) 13th Annual Congress*. <br>
 
 **Chua, DMN.**, Chan, KMK., Choi, YY. (2022). Effects of Oropharyngeal Exercises on the Swallowing Function of Older Adults: A Systematic Review. *Dysphagia Research Society (DRS) 30th Virtual Annual Meeting*. <br>
