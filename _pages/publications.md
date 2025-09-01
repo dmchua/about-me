@@ -4,7 +4,7 @@ title: "Research"
 permalink: research/
 author_profile: true
 ---
-## Journal articles
+## Selected peer-reviewed articles
 
 **Chua, DMN.** & Chan, KMK. (2024). Cortical Activation during Swallowing Exercise Tasks: An fNIRS Pilot Study. *Dysphagia*. https://doi.org/10.1007/s00455-024-10730-1 <br>
 
