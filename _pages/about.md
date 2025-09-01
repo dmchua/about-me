@@ -7,7 +7,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
-Hello! I'm Denise, I'm a speech-language pathologist and researcher at the [Swallowing Research Laboratory](https://swallow.edu.hku.hk/) at the University of Hong Kong.  
+Hello! I'm Denise, a speech-language pathologist and researcher at the [Swallowing Research Laboratory](https://swallow.edu.hku.hk/), University of Hong Kong.  
 
 
 ## My research interest
