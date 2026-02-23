@@ -7,9 +7,9 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Denise Chua"
+title                    : "Denise Chua, PhD"
 title_separator          : "-"
-name                     : &name "Denise Chua"
+name                     : &name "Denise Chua, PhD"
 description              : &description "personal description"
 url                      : "https://dmchua.github.io/about-me" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -80,14 +80,14 @@ analytics:
 
 # Site Author
 author:
-  name             : "Denise Chua"
+  name             : "Denise Chua, PhD"
   avatar           : "phdphoto.jpeg"
   bio              : "Speech-Language Pathologist and Researcher<br><br><a style='color: black;' href='https://swallow.edu.hku.hk/'>Swallowing Research Laboratory</a>, University of Hong Kong"
   location         : "Hong Kong"
   employer         :
   pubmed           : 
   googlescholar    :
-  email            : "dmchua@connect.hku.hk"
+  email            : "dnchua@hku.hk"
   researchgate     :
   uri              :
   bitbucket        :
