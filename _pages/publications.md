@@ -5,7 +5,7 @@ permalink: research/
 author_profile: true
 ---
 ## Selected peer-reviewed articles
-Dodderi, T., **Chua, DMN.**, Chan, KMK., Balasubramanium, RK., & Kothari, M. (2025). Principles of neural plasticity and motor learning in swallowing exercise protocols for older adults: A mapping review. *International Journal of Speech-Language Pathology, 1–19.* https://doi.org/10.1080/17549507.2025.2573336.
+Dodderi, T., **Chua, DMN.**, Chan, KMK., Balasubramanium, RK., & Kothari, M. (2025). Principles of neural plasticity and motor learning in swallowing exercise protocols for older adults: A mapping review. *International Journal of Speech-Language Pathology, 1–19.* https://doi.org/10.1080/17549507.2025.2573336
 
 **Chua, DMN.** & Chan, KMK. (2024). Cortical Activation during Swallowing Exercise Tasks: An fNIRS Pilot Study. *Dysphagia*. https://doi.org/10.1007/s00455-024-10730-1 <br>
 
