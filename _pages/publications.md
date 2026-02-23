@@ -12,8 +12,12 @@ Dodderi, T., **Chua, DMN.**, Chan, KMK., Balasubramanium, RK., & Kothari, M. (20
 **Chua, DMN.**, Choi, YY., & Chan, KMK. (2023). Effects of oropharyngeal exercises on the swallowing mechanism of older adults: A systematic review. *International Journal of Speech-Language Pathology, 1–18*. https://doi.org/10.1080/17549507.2023.2221409 <br>
 
 
-## Conference papers
-**Chua, DMN.** & Chan, K. M. K. (2025). Neural effects of action observation priming on effortful swallowing in healthy adults. *Dysphagia Research Society (DRS) 33rd Annual Meeting*. <br>
+## Selected conference papers
+**Chua, DMN.** & Chan, KMK. (2026). Sour Power: An fNIRS Study on the Effects of Olfactory Priming on Effortful Swallowing. *Dysphagia Research Society (DRS) 34th Annual Meeting*. <br>
+
+Chan, KMK., Tong, E., Au, D., Lee, E., Tsang, C., **Chua, DMN.** (2025). Mealtime experience and carers' skills and knowledge at residential care facilities for elderly. *Asian Dysphagia Society (ADS) 2nd International Conference*. <br>
+
+**Chua, DMN.** & Chan, KMK. (2025). Neural effects of action observation priming on effortful swallowing in healthy adults. *Dysphagia Research Society (DRS) 33rd Annual Meeting*. <br>
 
 
 **Chua, DMN.** & Chan, KMK. (2023). Cortical Activation during Swallowing Exercise Tasks: A Preliminary fNIRS Study. *European Society for Swallowing Disorders (ESSD) 13th Annual Congress*. <br>
