@@ -5,11 +5,11 @@ permalink: research/
 author_profile: true
 ---
 ## Selected peer-reviewed articles
-Dodderi, T., **Chua, DMN.**, Chan, KMK., Balasubramanium, RK., & Kothari, M. (2025). Principles of neural plasticity and motor learning in swallowing exercise protocols for older adults: A mapping review. *International Journal of Speech-Language Pathology, 1–19.* https://doi.org/10.1080/17549507.2025.2573336
+Dodderi, T., **Chua, DMN.**, Chan, KMK., Balasubramanium, RK., & Kothari, M. (2025). Principles of Neural Plasticity and Motor Learning in Swallowing Exercise Protocols for Older Adults: A Mapping Review. *International Journal of Speech-Language Pathology, 1–19.* https://doi.org/10.1080/17549507.2025.2573336
 
 **Chua, DMN.** & Chan, KMK. (2024). Cortical Activation during Swallowing Exercise Tasks: An fNIRS Pilot Study. *Dysphagia*. https://doi.org/10.1007/s00455-024-10730-1 <br>
 
-**Chua, DMN.**, Choi, YY., & Chan, KMK. (2023). Effects of oropharyngeal exercises on the swallowing mechanism of older adults: A systematic review. *International Journal of Speech-Language Pathology, 1–18*. https://doi.org/10.1080/17549507.2023.2221409 <br>
+**Chua, DMN.**, Choi, YY., & Chan, KMK. (2023). Effects of Oropharyngeal Exercises on the Swallowing Mechanism of Older Adults: A Systematic Review. *International Journal of Speech-Language Pathology, 1–18*. https://doi.org/10.1080/17549507.2023.2221409 <br>
 
 
 ## Selected conference papers
@@ -17,9 +17,9 @@ Chan, KMK., **Chua, DMN.**, Leung, HKH. (2026). Improving Access to Dysphagia Re
 
 **Chua, DMN.** & Chan, KMK. (2026). Sour Power: An fNIRS Study on the Effects of Olfactory Priming on Effortful Swallowing. *Dysphagia Research Society (DRS) 34th Annual Meeting*. <br>
 
-Chan, KMK., Tong, E., Au, D., Lee, E., Tsang, C., **Chua, DMN.** (2025). Mealtime experience and carers' skills and knowledge at residential care facilities for elderly. *Asian Dysphagia Society (ADS) 2nd International Conference*. <br>
+Chan, KMK., Tong, E., Au, D., Lee, E., Tsang, C., **Chua, DMN.** (2025). Mealtime Experience and Carers' Skills and Knowledge at Residential Care Facilities for Elderly. *Asian Dysphagia Society (ADS) 2nd International Conference*. <br>
 
-**Chua, DMN.** & Chan, KMK. (2025). Neural effects of action observation priming on effortful swallowing in healthy adults. *Dysphagia Research Society (DRS) 33rd Annual Meeting*. <br>
+**Chua, DMN.** & Chan, KMK. (2025). Neural Effects of Action Observation Priming on Effortful Swallowing in Healthy Adults. *Dysphagia Research Society (DRS) 33rd Annual Meeting*. <br>
 
 
 **Chua, DMN.** & Chan, KMK. (2023). Cortical Activation during Swallowing Exercise Tasks: A Preliminary fNIRS Study. *European Society for Swallowing Disorders (ESSD) 13th Annual Congress*. <br>
