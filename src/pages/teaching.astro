@@ -1,0 +1,10 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+const page = (await getEntry('pages', 'teaching'))!;
+const { Content } = await render(page);
+---
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <h1>{page.data.title}</h1>
+  <article class="prose prose--entries"><Content /></article>
+</BaseLayout>

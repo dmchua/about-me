@@ -1,0 +1,21 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../data/site';
+const page = (await getEntry('pages', 'cv'))!;
+const { Content } = await render(page);
+---
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <h1>Curriculum vitae</h1>
+  <article class="prose"><Content /></article>
+  <p class="actions">
+    <a class="button" href={site.cv} download><Icon name="download" /> Download CV (PDF)</a>
+    <a class="button button--ghost" href={site.cv}><Icon name="external" /> Open in new tab</a>
+  </p>
+  <div class="pdf-frame">
+    <object data={site.cv} type="application/pdf" title="Denise Mae Chua — CV (PDF)" aria-label="CV preview">
+      <p>Your browser can't show the PDF here. <a href={site.cv}>Open the CV</a> instead.</p>
+    </object>
+  </div>
+</BaseLayout>

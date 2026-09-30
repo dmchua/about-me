@@ -1,0 +1,25 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+const page = (await getEntry('pages', 'resources'))!;
+const { Content } = await render(page);
+const handouts = page.data.handouts ?? [];
+---
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <h1>{page.data.title}</h1>
+  <article class="prose"><Content /></article>
+  <h2>Handouts</h2>
+  <ul class="cards">
+    {handouts.map((h) => (
+      <li class="card">
+        <Icon name="file" size={28} />
+        <div>
+          <h3><a href={h.file}>{h.title}</a></h3>
+          <p>{h.description}</p>
+          <p class="card__meta">PDF · <a href={h.file} download>Download</a></p>
+        </div>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

@@ -1,0 +1,16 @@
+---
+import Icon from './Icon.astro';
+import { links } from '../data/site';
+interface Props { showHandles?: boolean }
+const { showHandles = false } = Astro.props;
+---
+<ul class:list={['social', { 'social--list': showHandles }]}>
+  {links.map((l) => (
+    <li>
+      <a href={l.url} rel={l.icon === 'email' ? undefined : 'me noopener'} aria-label={showHandles ? undefined : l.label}>
+        <Icon name={l.icon} />
+        {showHandles ? <span><span class="social__label">{l.label}</span> <span class="social__handle">{l.handle}</span></span> : <span class="visually-hidden">{l.label}</span>}
+      </a>
+    </li>
+  ))}
+</ul>

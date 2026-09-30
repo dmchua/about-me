@@ -1,0 +1,17 @@
+---
+import { nav, site } from '../data/site';
+const path = Astro.url.pathname;
+const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+---
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__name" href="/">{site.shortName}<span class="site-header__suffix">, PhD</span></a>
+    <nav aria-label="Main">
+      <ul class="nav">
+        {nav.map((item) => (
+          <li><a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

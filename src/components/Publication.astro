@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { pub: CollectionEntry<'publications'> }
+const { title, authors, year, venue, pages, doi, note } = Astro.props.pub.data;
+
+const escape = (s: string) =>
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+// Bold Denise's name wherever it appears in the author list.
+const authorsHtml = escape(authors).replace(/Chua, DMN\./g, '<strong>Chua, DMN.</strong>');
+---
+<li class="pub">
+  <p class="pub__title">{title}</p>
+  <p class="pub__authors"><Fragment set:html={authorsHtml} /> ({year}).</p>
+  {(venue || note) && (
+    <p class="pub__venue">
+      {venue && <em>{venue}</em>}{venue && pages && <>, {pages}</>}{venue && '.'}
+      {note && <span class="pub__note">{note}</span>}
+    </p>
+  )}
+  {doi && (
+    <p class="pub__doi"><a href={`https://doi.org/${doi}`}>doi:{doi}</a></p>
+  )}
+</li>

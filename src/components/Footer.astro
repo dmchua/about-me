@@ -1,0 +1,11 @@
+---
+import SocialLinks from './SocialLinks.astro';
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <p>© {year} {site.name} · {site.location}</p>
+    <SocialLinks />
+  </div>
+</footer>
