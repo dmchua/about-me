@@ -11,7 +11,7 @@ Hello! I'm Denise, a speech-language pathologist and researcher at the [Swallowi
 
 
 ## My research interest
-Throughout the years as an academic and clinician, I have developed a strong interest in the field of swallowing and dysphagia. My current research focuses on exmaining the effects of swallowing exercises on the neurophysiology of healthy adults using functional near-infrared spectroscopy (fNIRS).
+Throughout the years as an academic and clinician, I have developed a strong interest in the field of swallowing and dysphagia. My PhD research examined the effects of swallowing exercises on the neurophysiology of healthy adults using functional near-infrared spectroscopy (fNIRS). I am currently part of a project that focuses on improving dysphagia management in community and long-term care settings, with the goal of enhancing early identification, care accessibility, and rehabilitation outcomes for individuals living with swallowing disorders.
 
 
 ## My background and experience
