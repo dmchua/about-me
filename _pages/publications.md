@@ -13,6 +13,8 @@ Dodderi, T., **Chua, DMN.**, Chan, KMK., Balasubramanium, RK., & Kothari, M. (20
 
 
 ## Selected conference papers
+Chan, KMK., **Chua, DMN.**, Leung, HKH. (2026). Improving Access to Dysphagia Rehabilitation in Nursing Home Settings: Pilot Study of a Team-Based Approach. *Japanese Society of Dysphagia Rehabilitation (JSDR) 32nd Annual Meeting*. <br>
+
 **Chua, DMN.** & Chan, KMK. (2026). Sour Power: An fNIRS Study on the Effects of Olfactory Priming on Effortful Swallowing. *Dysphagia Research Society (DRS) 34th Annual Meeting*. <br>
 
 Chan, KMK., Tong, E., Au, D., Lee, E., Tsang, C., **Chua, DMN.** (2025). Mealtime experience and carers' skills and knowledge at residential care facilities for elderly. *Asian Dysphagia Society (ADS) 2nd International Conference*. <br>
