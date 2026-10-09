@@ -25,10 +25,6 @@
 [data-design='scholarly'] .hero__photo { border-radius: 50%; }
 [data-design='scholarly'] .frame__c { display: none; }
 [data-design='scholarly'] .frame { padding: 0; }
-:root[data-design='scholarly'] { --swallow-tube: #c9d8d4; --swallow-bolus: #d0643f; }
-@media (prefers-color-scheme: dark) {
-  :root[data-design='scholarly'] { --swallow-tube: #2b3a38; --swallow-bolus: #f08a63; }
-}
 
 /* ==========================================================
    1 · FLUORO — dark X-ray screen. The logo, as a website.
@@ -281,7 +277,10 @@
   [data-design='swallow'] body::after, [data-design='swallow'] .button, [data-design='swallow'] .swallow__track { animation: none; }
 }
 
-/* Classic = the original site: no swallow rail (the X-ray lives on the Research page). */
-[data-design='scholarly'] .swallow { display: none; }
-@media (max-width: 1179px) { [data-design='scholarly'] main.container, [data-design='scholarly'] .site-footer .container { padding-right: 1rem; } }
-@media (min-width: 768px) and (max-width: 1179px) { [data-design='scholarly'] main.container, [data-design='scholarly'] .site-footer .container { padding-right: 2rem; } }
+/* Classic: the rail is a simple line with a teal bolus (Research page only). */
+:root[data-design='scholarly'] {
+  --swallow-tube: transparent; --swallow-tube-opacity: 0;
+  --swallow-track: color-mix(in srgb, var(--muted) 45%, transparent);
+  --swallow-bolus: var(--accent);
+}
+[data-design='scholarly'] .swallow__track { stroke-dasharray: none; stroke-width: 1.5; }

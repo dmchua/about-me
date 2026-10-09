@@ -12,8 +12,9 @@ interface Props {
   description: string;
   jsonLd?: boolean; // include Person structured data (home page)
   noindex?: boolean;
+  rail?: boolean; // the scrolling bolus line down the side (Research page)
 }
-const { title, description, jsonLd = false, noindex = false } = Astro.props;
+const { title, description, jsonLd = false, noindex = false, rail = false } = Astro.props;
 const fullTitle = title === site.name ? site.name : `${title} — ${site.name}`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(site.ogImage, Astro.site).href;
@@ -97,7 +98,7 @@ const person = {
       <slot />
     </main>
     <Footer />
-    <SwallowRail />
+    {rail && <SwallowRail />}
     {showDesignSwitcher && <DesignSwitcher />}
   </body>
 </html>
