@@ -131,11 +131,12 @@ a:hover { color: var(--accent-strong); text-decoration-thickness: 2px; }
 .pub { padding: 1rem 0; border-bottom: 1px solid var(--border); }
 .pub:last-child { border-bottom: 0; }
 .pub p { margin: 0; }
-.pub__title { font-family: var(--font-display); font-weight: 700; font-size: 1.08rem; line-height: 1.4; margin-bottom: .3rem !important; }
-.pub__authors, .pub__venue { color: var(--muted); font-size: .95rem; }
-.pub__authors strong { color: var(--text); }
-.pub__note { display: block; font-style: italic; }
-.pub__doi { font-size: .92rem; margin-top: .25rem !important; overflow-wrap: anywhere; }
+.pub__citation { font-size: 1rem; line-height: 1.6; overflow-wrap: anywhere; }
+.pub__citation strong { color: var(--text); }
+.pub__title { font-weight: 600; }
+a.pub__title { text-decoration-color: var(--border); }
+a.pub__title:hover { text-decoration-color: currentColor; }
+.pub__note { color: var(--muted); font-style: italic; font-size: .95rem; margin-top: .2rem !important; }
 
 /* ---------- Resources ---------- */
 .cards { list-style: none; padding: 0; display: grid; gap: 1rem; }

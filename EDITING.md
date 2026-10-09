@@ -13,7 +13,6 @@ You only need to edit Markdown text files. When you commit a change on GitHub, t
 | To change… | Edit this file |
 | --- | --- |
 | About (home page text) | `src/content/pages/about.md` |
-| Research intro (interests, current project, PhD) | `src/content/pages/research.md` |
 | Publications and conference papers | `src/content/publications/` (one file each) |
 | Teaching | `src/content/pages/teaching.md` |
 | CV page summary | `src/content/pages/cv.md` |
@@ -35,8 +34,8 @@ authors: "Chua, DMN., Chan, KMK."
 year: 2027
 type: article          # article, conference, or unpublished
 venue: "Dysphagia"     # journal or conference name
-pages: "1–12"          # optional
-doi: "10.1007/xxxxx"   # optional; just the DOI, not the full link
+pages: "40(2), 327–335"  # optional: volume(issue), pages
+doi: "10.1007/xxxxx"   # optional; just the DOI. It makes the title a link
 ---
 ```
 

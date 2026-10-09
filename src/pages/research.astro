@@ -1,10 +1,9 @@
 ---
-import { getCollection, getEntry, render } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Publication from '../components/Publication.astro';
 
 const page = (await getEntry('pages', 'research'))!;
-const { Content } = await render(page);
 
 const pubs = (await getCollection('publications')).sort(
   (a, b) => b.data.year - a.data.year || b.data.order - a.data.order || a.data.title.localeCompare(b.data.title),
@@ -17,9 +16,6 @@ const groups = [
 ---
 <BaseLayout title={page.data.title} description={page.data.description}>
   <h1>{page.data.title}</h1>
-  <article class="prose">
-    <Content />
-  </article>
   <div class="publications">
     {groups.map((g) => {
       const items = pubs.filter((p) => p.data.type === g.type);

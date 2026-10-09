@@ -6,18 +6,18 @@ const { title, authors, year, venue, pages, doi, note } = Astro.props.pub.data;
 const escape = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 // Bold Denise's name wherever it appears in the author list.
+// APA: italicize the volume number, not the issue — "26(5), 696–713" -> "<em>26</em>(5), 696–713".
+const pagesHtml = pages ? escape(pages).replace(/^(\d+)/, '<em>$1</em>') : '';
 const authorsHtml = escape(authors).replace(/Chua, DMN\./g, '<strong>Chua, DMN.</strong>');
 ---
 <li class="pub">
-  <p class="pub__title">{title}</p>
-  <p class="pub__authors"><Fragment set:html={authorsHtml} /> ({year}).</p>
-  {(venue || note) && (
-    <p class="pub__venue">
-      {venue && <em>{venue}</em>}{venue && pages && <>, {pages}</>}{venue && '.'}
-      {note && <span class="pub__note">{note}</span>}
-    </p>
-  )}
-  {doi && (
-    <p class="pub__doi"><a href={`https://doi.org/${doi}`}>doi:{doi}</a></p>
-  )}
+  <p class="pub__citation">
+    <Fragment set:html={authorsHtml} /> ({year}).
+    {doi
+      ? <a class="pub__title" href={`https://doi.org/${doi}`} target="_blank" rel="noopener">{title}<span class="visually-hidden"> (opens in a new tab)</span></a>
+      : <span class="pub__title">{title}</span>}.
+    {venue && <em>{venue}</em>}{venue && pages && <>, <Fragment set:html={pagesHtml} /></>}{venue && '.'}
+    {doi && <> <a href={`https://doi.org/${doi}`} target="_blank" rel="noopener">https://doi.org/{doi}</a></>}
+  </p>
+  {note && <p class="pub__note">{note}</p>}
 </li>

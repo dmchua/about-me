@@ -1,0 +1,14 @@
+# Old AcademicPages URLs (dmchua.github.io/about-me/*) arrive here as /* once GitHub
+# forwards them to denisechua.me. Send the ones that moved to their new home (301 = permanent).
+/about              /                                                   301
+/about/             /                                                   301
+/about.html         /                                                   301
+/publications       /research/                                          301
+/publications/      /research/                                          301
+
+# Old PDF filenames kept at the old repo root
+/DMNChua_CV2026.pdf                                    /files/DMNChua_CV2026.pdf                               301
+/DMNChua_CV2024.pdf                                    /files/DMNChua_CV2026.pdf                               301
+/DMNChua%20CV%20Updated.pdf                            /files/DMNChua_CV2026.pdf                               301
+/Muscles%20of%20Swallowing.pdf                         /files/muscles-of-swallowing.pdf                        301
+/Neuroanatomy%20of%20Swallowing_Cranial%20Nerves.pdf   /files/neuroanatomy-of-swallowing-cranial-nerves.pdf    301

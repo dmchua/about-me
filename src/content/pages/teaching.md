@@ -13,7 +13,7 @@ description: Teaching by Denise Mae Chua at the University of Hong Kong and the 
 
 ### The University of Hong Kong
 
-*A.Y. 2020–present · Teaching Assistant*
+*A.Y. 2021–present · Teaching Assistant / Guest Lecturer*
 
 - SHSC4031 Dysphagia
 
