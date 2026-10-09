@@ -1,0 +1,138 @@
+---
+// The swallow: a bolus that crosses the back of the mouth, then drops down the pharynx and
+// esophagus as the page scrolls. Purely decorative (aria-hidden). How much of it shows
+// (peristaltic waves, trail, phase label, reveals) is up to the active design's CSS.
+---
+<div class="swallow" aria-hidden="true">
+  <svg class="swallow__svg">
+    <path class="swallow__tube" />
+    <path class="swallow__wall" />
+    <path class="swallow__track" />
+    <path class="swallow__wave swallow__wave--1" />
+    <path class="swallow__wave swallow__wave--2" />
+    <ellipse class="swallow__ghost" data-lag="4" />
+    <ellipse class="swallow__ghost" data-lag="3" />
+    <ellipse class="swallow__ghost" data-lag="2" />
+    <ellipse class="swallow__ghost" data-lag="1" />
+    <ellipse class="swallow__bolus" />
+  </svg>
+  <span class="swallow__phase">Oral</span>
+</div>
+
+<script>
+  const rail = document.querySelector<HTMLElement>('.swallow');
+  if (rail) {
+    const root = document.documentElement;
+    const svg = rail.querySelector('svg')!;
+    const paths = rail.querySelectorAll<SVGPathElement>('.swallow__tube, .swallow__wall, .swallow__track, .swallow__wave');
+    const track = rail.querySelector<SVGPathElement>('.swallow__track')!;
+    const waves = [...rail.querySelectorAll<SVGPathElement>('.swallow__wave')];
+    const bolus = rail.querySelector<SVGEllipseElement>('.swallow__bolus')!;
+    const ghosts = [...rail.querySelectorAll<SVGEllipseElement>('.swallow__ghost')];
+    const phase = rail.querySelector<HTMLElement>('.swallow__phase')!;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let len = 0, oralEnd = 0, pharynxEnd = 0, size = 8;
+    let target = 0, pos = 0, vel = 0, raf = 0;
+
+    const progress = () => {
+      const max = root.scrollHeight - innerHeight;
+      return max > 40 ? Math.min(1, Math.max(0, scrollY / max)) : 0.2; // short pages: just past the tongue
+    };
+    const point = (t: number) => track.getPointAtLength(Math.min(1, Math.max(0, t)) * len);
+
+    // Mouth (across) -> back of the tongue (curve) -> pharynx and esophagus (down).
+    const build = () => {
+      const { width: w, height: h } = rail.getBoundingClientRect();
+      if (!w || !h) return;
+      size = parseFloat(getComputedStyle(rail).getPropertyValue('--bolus')) || 8;
+      svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+      const pad = Math.max(3, size), top = size + 6, x = w - pad;
+      const r = Math.min(w - pad * 2, 60) * 0.6;
+      const d = `M ${pad} ${top} H ${x - r} A ${r} ${r} 0 0 1 ${x} ${top + r} V ${h - size - 4}`;
+      paths.forEach((p) => p.setAttribute('d', d));
+      len = track.getTotalLength();
+      oralEnd = (x - r - pad) / len;
+      pharynxEnd = oralEnd + (Math.PI * r / 2 + Math.min(h * 0.2, 160)) / len;
+      waves.forEach((wv) => (wv.style.strokeDasharray = `${size * 2.2} ${len}`));
+      target = progress(); pos = target; draw();
+    };
+
+    const draw = () => {
+      const p = point(pos);
+      const vertical = pos > oralEnd;
+      // Squash and stretch along the direction of travel, more when moving fast.
+      const s = Math.min(Math.abs(vel) * 60, 0.7);
+      const along = size * (1.15 + s), across = size * (1 - s * 0.35);
+      bolus.setAttribute('cx', String(p.x)); bolus.setAttribute('cy', String(p.y));
+      bolus.setAttribute('rx', String(vertical ? across : along));
+      bolus.setAttribute('ry', String(vertical ? along : across));
+      ghosts.forEach((g) => {
+        const q = point(pos - Number(g.dataset.lag) * (0.012 + Math.abs(vel) * 0.8));
+        g.setAttribute('cx', String(q.x)); g.setAttribute('cy', String(q.y));
+        g.setAttribute('rx', String(size * 0.8)); g.setAttribute('ry', String(size));
+      });
+      // Peristalsis: contraction waves ride just behind the bolus.
+      waves.forEach((wv, i) => {
+        const at = pos * len - size * (3 + i * 3.5);
+        wv.style.strokeDashoffset = String(-at);
+        wv.style.visibility = pos > oralEnd && at > 0 ? 'visible' : 'hidden';
+      });
+      phase.textContent = pos < oralEnd ? 'Oral' : pos < pharynxEnd ? 'Pharyngeal' : 'Esophageal';
+      phase.classList.toggle('swallow__phase--right', pos < oralEnd);
+      phase.style.transform = `translate(${p.x}px, ${p.y}px)`;
+      rail.style.setProperty('--progress', pos.toFixed(3));
+    };
+
+    // Ease toward the scroll position so the bolus glides instead of jumping.
+    const tick = () => {
+      const next = reduce ? target : pos + (target - pos) * 0.14;
+      vel = next - pos; pos = next; draw();
+      if (Math.abs(target - pos) > 0.0005) raf = requestAnimationFrame(tick);
+      else { raf = 0; vel = 0; draw(); }
+    };
+    const onScroll = () => { target = progress(); if (!raf) raf = requestAnimationFrame(tick); };
+
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', build);
+    build();
+
+    // Reveal-on-scroll for designs that ask for it (CSS keys off .reveal / .is-in).
+    if (!reduce && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      }), { rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('main h2, main .pub, .prose > p, .prose > ul, .card').forEach((el) => {
+        el.classList.add('reveal'); io.observe(el);
+      });
+      root.classList.add('can-reveal');
+    }
+  }
+</script>
+
+<style is:global>
+  .swallow {
+    --bolus: 7;
+    position: fixed; z-index: 5; pointer-events: none;
+    top: 5.5rem; bottom: 1.5rem; right: 4px; width: 26px;
+  }
+  @media (min-width: 1180px) {
+    .swallow { --bolus: 9; right: auto; left: max(1rem, calc((100vw - 52rem) / 2 - 9rem)); width: 96px; top: 7rem; bottom: 3rem; }
+  }
+  @media (max-width: 1179px) { main.container, .site-footer .container { padding-right: 2.1rem; } }
+  .swallow__svg { width: 100%; height: 100%; overflow: visible; display: block; }
+  .swallow__tube { fill: none; stroke: var(--swallow-tube); stroke-width: var(--tube-w, 12px); stroke-linecap: round; filter: blur(var(--swallow-blur, 5px)); opacity: var(--swallow-tube-opacity, .6); }
+  .swallow__wall { display: none; fill: none; stroke: var(--swallow-wall, transparent); stroke-width: calc(var(--tube-w, 12px) + 8px); stroke-linecap: round; }
+  .swallow__track { fill: none; stroke: var(--swallow-track); stroke-width: 1.5; stroke-dasharray: 2 5; stroke-linecap: round; }
+  .swallow__wave { display: none; fill: none; stroke: var(--swallow-wave, #000); stroke-width: calc(var(--tube-w, 12px) * 1.05); stroke-linecap: round; filter: blur(3px); }
+  .swallow__wave--2 { opacity: .55; }
+  .swallow__bolus { fill: var(--swallow-bolus); filter: var(--swallow-glow, none); }
+  .swallow__ghost { fill: var(--swallow-bolus); opacity: 0; }
+  .swallow__phase {
+    display: none; position: absolute; left: 0; top: 0; margin: -.4rem 0 0 -1.4rem; translate: -100% 0; white-space: nowrap;
+    font: 500 .68rem/1 'IBM Plex Mono', ui-monospace, monospace; letter-spacing: .2em; text-transform: uppercase; color: var(--accent);
+    transition: transform .05s linear;
+  }
+  .swallow__phase--right { margin-left: 1.6rem; translate: 0 0; }
+  @media (min-width: 1180px) { .swallow__tube { stroke-width: var(--tube-w-lg, 18px); } }
+  @media print { .swallow { display: none; } }
+</style>

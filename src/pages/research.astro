@@ -2,6 +2,9 @@
 import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Publication from '../components/Publication.astro';
+import XrayHead from '../components/XrayHead.astro';
+import XrayController from '../components/XrayController.astro';
+import '../styles/xray.css';
 
 const page = (await getEntry('pages', 'research'))!;
 
@@ -13,20 +16,124 @@ const groups = [
   { type: 'conference', heading: 'Selected conference papers' },
   { type: 'unpublished', heading: 'Unpublished work' },
 ] as const;
+
+// Preview-only: the five X-ray concepts and three looks to choose from.
+const concepts = [
+  { id: 'a', label: 'A · Sticky' },
+  { id: 'b', label: 'B · Header' },
+  { id: 'c', label: 'C · Timeline' },
+  { id: 'd', label: 'D · Scroll story' },
+  { id: 'e', label: 'E · Tap' },
+];
+const looks = [
+  { id: 'fluoro', label: 'Fluoro' },
+  { id: 'negative', label: 'Negative' },
+  { id: 'line', label: 'Line art' },
+];
 ---
 <BaseLayout title={page.data.title} description={page.data.description}>
+  <script is:inline>
+    // Choose the concept/look before first paint: ?xray=…&xlook=… win, then the last choice.
+    try {
+      const q = new URLSearchParams(location.search), r = document.documentElement;
+      const pick = (k, ok, d) => { const v = q.get(k) || localStorage.getItem(k); r.dataset[k] = ok.includes(v) ? v : d; };
+      pick('xray', ['a', 'b', 'c', 'd', 'e'], 'c');
+      pick('xlook', ['fluoro', 'negative', 'line'], 'fluoro');
+    } catch { document.documentElement.dataset.xray = 'c'; document.documentElement.dataset.xlook = 'fluoro'; }
+  </script>
+
   <h1>{page.data.title}</h1>
-  <div class="publications">
-    {groups.map((g) => {
-      const items = pubs.filter((p) => p.data.type === g.type);
-      return items.length > 0 && (
-        <section>
-          <h2>{g.heading}</h2>
-          <ol class="pub-list">
-            {items.map((p) => <Publication pub={p} />)}
-          </ol>
-        </section>
-      );
-    })}
+
+  <div class="xr-preview" role="group" aria-label="Preview X-ray concept">
+    <p class="xr-preview__title">Preview · pick a concept and a look</p>
+    <div class="xr-preview__row">
+      {concepts.map((c) => <button type="button" data-xray-choice={c.id}>{c.label}</button>)}
+    </div>
+    <div class="xr-preview__row">
+      {looks.map((l) => <button type="button" data-xlook-choice={l.id}>{l.label}</button>)}
+    </div>
   </div>
+
+  <!-- B · header banner that swallows on a loop -->
+  <section class="xr-concept xr-b">
+    <XrayHead mode="loop" labels />
+    <p class="xr-caption-line">Videofluoroscopic swallow, illustrated: the bolus moves from the mouth, past the airway, into the esophagus.</p>
+  </section>
+
+  <!-- D · pinned scroll story -->
+  <section class="xr-concept xr-d xr-pinned">
+    <div class="xr-pinned__stage">
+      <XrayHead mode="pinned" labels />
+      <div class="xr-story">
+        <p class="xr-story__hint" data-from="0" data-to="0.06">Scroll to swallow ↓</p>
+        <div class="xr-story__step" data-from="0.06" data-to="0.36">
+          <p class="xr-story__phase">Oral phase · Exercise</p>
+          <p>Which swallowing exercises help older adults, and why do they work?</p>
+        </div>
+        <div class="xr-story__step" data-from="0.36" data-to="0.66">
+          <p class="xr-story__phase">Pharyngeal phase · The brain</p>
+          <p>What the brain does during swallowing exercises, measured with fNIRS.</p>
+        </div>
+        <div class="xr-story__step" data-from="0.66" data-to="1.01">
+          <p class="xr-story__phase">Esophageal phase · Care</p>
+          <p>Bringing dysphagia care to people in nursing homes and the community.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E · tap to swallow -->
+  <section class="xr-concept xr-e xr-tap">
+    <XrayHead mode="tap" labels />
+    <div class="xr-tap__controls">
+      <button type="button" class="button" data-swallow-button>Swallow</button>
+      <p>Press to watch a swallow, from the tongue to the esophagus.</p>
+    </div>
+  </section>
+
+  <!-- C · the head on top; its esophagus continues as the timeline spine -->
+  <div class="xr-concept xr-c">
+    <XrayHead mode="head" />
+  </div>
+
+  <div class="research-layout">
+    <!-- A · sticky X-ray beside the list -->
+    <aside class="xr-concept xr-a">
+      <XrayHead mode="list" />
+    </aside>
+
+    <div class="publications">
+      <span class="xr-timeline-dot" aria-hidden="true"></span>
+      {groups.map((g) => {
+        const items = pubs.filter((p) => p.data.type === g.type);
+        return items.length > 0 && (
+          <section>
+            <h2>{g.heading}</h2>
+            <ol class="pub-list">
+              {items.map((p) => <Publication pub={p} />)}
+            </ol>
+          </section>
+        );
+      })}
+    </div>
+  </div>
+
+  <XrayController />
+
+  <script>
+    const root = document.documentElement;
+    const sync = () => {
+      document.querySelectorAll<HTMLButtonElement>('[data-xray-choice]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.xrayChoice === root.dataset.xray)));
+      document.querySelectorAll<HTMLButtonElement>('[data-xlook-choice]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.xlookChoice === root.dataset.xlook)));
+    };
+    const choose = (key: 'xray' | 'xlook', v: string) => {
+      root.dataset[key] = v;
+      try { localStorage.setItem(key, v); } catch {}
+      sync();
+      dispatchEvent(new Event('xray:change'));
+    };
+    document.querySelectorAll<HTMLButtonElement>('[data-xray-choice]').forEach((b) => b.addEventListener('click', () => choose('xray', b.dataset.xrayChoice!)));
+    document.querySelectorAll<HTMLButtonElement>('[data-xlook-choice]').forEach((b) => b.addEventListener('click', () => choose('xlook', b.dataset.xlookChoice!)));
+    sync();
+  </script>
 </BaseLayout>

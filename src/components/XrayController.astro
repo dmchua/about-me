@@ -1,0 +1,122 @@
+---
+// Drives every <XrayHead> on the page. How the bolus moves depends on the figure's mode:
+//   list   – scrolls with the publication list (concept A)
+//   loop   – swallows on a timer (concept B)
+//   head   – swallows as you start scrolling; then a dot carries on down the timeline (concept C)
+//   pinned – scrubbed by scrolling through a pinned full-screen section (concept D)
+//   tap    – plays when the "Swallow" button is pressed (concept E)
+---
+<script>
+  type Fig = { el: HTMLElement; set: (t: number) => void };
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clamp = (t: number) => Math.min(1, Math.max(0, t));
+  const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+  const figs: Fig[] = [...document.querySelectorAll<HTMLElement>('.xr')].map((el) => {
+    const route = el.querySelector<SVGPathElement>('.xr-route')!;
+    const coat = el.querySelector<SVGPathElement>('.xr-coat')!;
+    const bolus = el.querySelector<SVGEllipseElement>('.xr-bolus')!;
+    const phase = el.querySelector<SVGTextElement>('.xr-phase')!;
+    const labels = [...el.querySelectorAll<SVGGElement>('.xr-label')];
+    const len = route.getTotalLength();
+    coat.style.strokeDasharray = `${len} ${len}`;
+    let last = 0;
+    const set = (t: number) => {
+      t = clamp(t);
+      const p = route.getPointAtLength(t * len);
+      const speed = Math.min(Math.abs(t - last) * 40, 0.6); last = t;
+      const down = p.y > 212;
+      const along = 12 * (1 + speed), across = 9 * (1 - speed * 0.3);
+      bolus.setAttribute('cx', String(p.x)); bolus.setAttribute('cy', String(p.y));
+      bolus.setAttribute('rx', String(down ? across : along));
+      bolus.setAttribute('ry', String(down ? along : across));
+      bolus.style.opacity = t <= 0 || t >= 1 ? '0.85' : '1';
+      coat.style.strokeDashoffset = String(len * (1 - t));
+      const ph = p.x < 206 && p.y < 212 ? 'oral' : p.y < 335 ? 'pharyngeal' : 'esophageal';
+      phase.textContent = ph.toUpperCase();
+      el.dataset.phase = ph;
+      labels.forEach((l) => {
+        const d = Math.hypot(Number(l.dataset.x) - p.x, Number(l.dataset.y) - p.y);
+        l.classList.toggle('is-active', d < 42);
+      });
+    };
+    set(0);
+    return { el, set };
+  });
+
+  const visible = (el: HTMLElement) => el.offsetParent !== null;
+  const byMode = (m: string) => figs.filter((f) => f.el.dataset.mode === m);
+
+  // ---- scroll-driven modes (A, C, D) ----
+  const list = document.querySelector<HTMLElement>('.publications');
+  const timeline = document.querySelector<HTMLElement>('.xr-timeline-dot');
+  const pubs = [...document.querySelectorAll<HTMLElement>('.publications .pub')];
+  const onScroll = () => {
+    for (const f of byMode('list')) {
+      if (!visible(f.el) || !list) continue;
+      const r = list.getBoundingClientRect();
+      f.set((innerHeight * 0.35 - r.top) / Math.max(1, r.height - innerHeight * 0.3));
+    }
+    for (const f of byMode('head')) {
+      if (!visible(f.el)) continue;
+      const r = f.el.getBoundingClientRect();
+      f.set((innerHeight * 0.55 - r.top) / Math.max(1, r.height));
+    }
+    if (timeline && list && visible(timeline)) {
+      const r = list.getBoundingClientRect();
+      const y = Math.min(r.height - 10, Math.max(0, innerHeight * 0.5 - r.top));
+      timeline.style.transform = `translateY(${y}px)`;
+      pubs.forEach((p) => p.classList.toggle('is-passed', p.offsetTop - list.offsetTop < y + 8));
+    }
+    for (const f of byMode('pinned')) {
+      const sec = f.el.closest<HTMLElement>('.xr-pinned');
+      if (!sec || !visible(sec)) continue;
+      const r = sec.getBoundingClientRect();
+      const t = clamp(-r.top / Math.max(1, r.height - innerHeight));
+      f.set(t);
+      sec.querySelectorAll<HTMLElement>('[data-from]').forEach((c) => {
+        c.classList.toggle('is-on', t >= Number(c.dataset.from) && t < Number(c.dataset.to));
+      });
+    }
+  };
+  let raf = 0;
+  addEventListener('scroll', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(onScroll); }, { passive: true });
+  addEventListener('resize', onScroll);
+  addEventListener('xray:change', onScroll);
+  onScroll();
+
+  // ---- B: loop ----
+  const loops = byMode('loop');
+  if (loops.length) {
+    if (reduce) loops.forEach((f) => f.set(0.6));
+    else {
+      const period = 4600;
+      const frame = (now: number) => {
+        const k = (now % period) / period; // hold, swallow, hold
+        const t = k < 0.18 ? 0 : k > 0.82 ? 1 : ease((k - 0.18) / 0.64);
+        loops.forEach((f) => visible(f.el) && f.set(t));
+        requestAnimationFrame(frame);
+      };
+      requestAnimationFrame(frame);
+    }
+  }
+
+  // ---- E: tap to swallow ----
+  document.querySelectorAll<HTMLButtonElement>('[data-swallow-button]').forEach((btn) => {
+    const f = figs.find((x) => btn.closest('.xr-tap')?.contains(x.el));
+    if (!f) return;
+    btn.addEventListener('click', () => {
+      if (btn.disabled) return;
+      if (reduce) { f.set(1); return; }
+      btn.disabled = true;
+      const start = performance.now(), dur = 3400;
+      const step = (now: number) => {
+        const k = clamp((now - start) / dur);
+        f.set(ease(k));
+        if (k < 1) requestAnimationFrame(step);
+        else setTimeout(() => { f.set(0); btn.disabled = false; }, 1400);
+      };
+      requestAnimationFrame(step);
+    });
+  });
+</script>

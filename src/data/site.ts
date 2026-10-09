@@ -33,3 +33,14 @@ export const nav = [
   { label: 'Resources', href: '/resources/' },
   { label: 'Contact', href: '/contact/' },
 ];
+
+// Redesign preview (Bolus Brief / fluoro concepts). Set showDesignSwitcher to false once one is chosen.
+export const designs = [
+  { id: 'fluoro', label: 'Fluoro' },
+  { id: 'negative', label: 'Negative' },
+  { id: 'scholarly', label: 'Classic' },
+  { id: 'swallow', label: 'Swallow' },
+] as const;
+export type DesignId = (typeof designs)[number]['id'];
+export const defaultDesign: DesignId = 'scholarly';
+export const showDesignSwitcher = true;

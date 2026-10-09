@@ -1,0 +1,287 @@
+/* ==========================================================
+   Redesign candidates built on the Bolus Brief "Fluoro frame" mark:
+   an X-ray (videofluoroscopy) screen, a blurred pharynx, a glowing
+   bolus and coral viewfinder corners.
+   Scoped by <html data-design="…">; global.css is the base.
+   ========================================================== */
+
+/* ---------- Shared: swallow rail defaults + viewfinder corners ---------- */
+:root {
+  --swallow-tube: #b9c7c4;
+  --swallow-track: color-mix(in srgb, var(--accent) 45%, transparent);
+  --swallow-bolus: #e8704a;
+  --corner: var(--accent);
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+.frame { position: relative; display: inline-block; padding: 14px; flex: none; }
+.frame__c { position: absolute; width: 22px; height: 22px; border: 0 solid var(--corner); }
+.frame__c--tl { top: 0; left: 0; border-top-width: 3px; border-left-width: 3px; }
+.frame__c--tr { top: 0; right: 0; border-top-width: 3px; border-right-width: 3px; }
+.frame__c--bl { bottom: 0; left: 0; border-bottom-width: 3px; border-left-width: 3px; }
+.frame__c--br { bottom: 0; right: 0; border-bottom-width: 3px; border-right-width: 3px; }
+.frame__label { display: none; }
+
+/* ---------- 3 · Scholarly+ : the chosen design, with the swallow added ---------- */
+[data-design='scholarly'] .hero__photo { border-radius: 50%; }
+[data-design='scholarly'] .frame__c { display: none; }
+[data-design='scholarly'] .frame { padding: 0; }
+:root[data-design='scholarly'] { --swallow-tube: #c9d8d4; --swallow-bolus: #d0643f; }
+@media (prefers-color-scheme: dark) {
+  :root[data-design='scholarly'] { --swallow-tube: #2b3a38; --swallow-bolus: #f08a63; }
+}
+
+/* ==========================================================
+   1 · FLUORO — dark X-ray screen. The logo, as a website.
+   ========================================================== */
+:root[data-design='fluoro'] {
+  color-scheme: dark;
+  --bg: #0f1011;
+  --surface: #17191a;
+  --text: #e9eaeb;
+  --muted: #a1a6aa;
+  --border: #2a2d30;
+  --accent: #f07b53;
+  --accent-strong: #ff9a76;
+  --accent-contrast: #0f1011;
+  --focus: #f0c24f;
+  --font-body: 'IBM Plex Sans', ui-sans-serif, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --radius: 4px;
+  --swallow-tube: #6b7074;
+  --swallow-tube-opacity: .75;
+  --swallow-blur: 7px;
+  --swallow-track: rgba(240, 123, 83, .35);
+  --swallow-bolus: #ffffff;
+  --swallow-glow: drop-shadow(0 0 8px rgba(255, 255, 255, .85));
+  --swallow-ghost: .28;
+}
+[data-design='fluoro'] body {
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 18%, #26292c 0%, rgba(15, 16, 17, 0) 70%) fixed,
+    var(--bg);
+}
+[data-design='fluoro'] h1, [data-design='fluoro'] h2, [data-design='fluoro'] h3 { font-weight: 400; letter-spacing: 0; }
+[data-design='fluoro'] .prose h2, [data-design='fluoro'] .publications h2, [data-design='fluoro'] main > h2 { counter-increment: frame; }
+[data-design='fluoro'] main { counter-reset: frame; }
+[data-design='fluoro'] .prose h2::before, [data-design='fluoro'] .publications h2::before, [data-design='fluoro'] main > h2::before {
+  content: 'FRAME ' counter(frame, decimal-leading-zero);
+  display: block; margin-bottom: .4rem;
+  font: 500 .72rem/1 var(--font-mono); letter-spacing: .22em; color: var(--accent);
+}
+[data-design='fluoro'] .site-header { border-bottom-color: var(--border); }
+[data-design='fluoro'] .site-header__name { font-family: var(--font-mono); font-weight: 500; font-size: .95rem; letter-spacing: .18em; text-transform: uppercase; }
+[data-design='fluoro'] .site-header__suffix { color: var(--accent); }
+[data-design='fluoro'] .nav { font-family: var(--font-mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+[data-design='fluoro'] .nav a[aria-current='page'] { color: var(--accent); border-bottom-color: var(--accent); }
+[data-design='fluoro'] .hero { border-bottom-color: var(--border); }
+[data-design='fluoro'] .hero__photo { border-radius: 2px; box-shadow: none; filter: saturate(.85) contrast(1.05); }
+[data-design='fluoro'] .hero__title { font-family: var(--font-mono); font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+[data-design='fluoro'] .frame__label {
+  display: block; position: absolute; left: 14px; right: 14px; bottom: -1.6rem; text-align: center;
+  font: 500 .66rem/1 var(--font-mono); letter-spacing: .24em; color: var(--muted);
+}
+[data-design='fluoro'] .button { border-radius: 2px; font-family: var(--font-mono); font-weight: 500; text-transform: uppercase; letter-spacing: .08em; font-size: .82rem; }
+[data-design='fluoro'] a.pub__title { text-decoration-color: rgba(240, 123, 83, .35); }
+[data-design='fluoro'] .pub__citation strong { color: #fff; }
+[data-design='fluoro'] .card { background: var(--surface); border-radius: 2px; }
+[data-design='fluoro'] .social--list a { border-radius: 2px; }
+
+/* ==========================================================
+   2 · NEGATIVE — the same film, printed light. Calmer, editorial.
+   ========================================================== */
+:root[data-design='negative'] {
+  --bg: #e8e9e5;
+  --surface: #dcded9;
+  --text: #17191a;
+  --muted: #4c5257;
+  --border: #c5c8c2;
+  --accent: #b5472a;
+  --accent-strong: #8e3219;
+  --accent-contrast: #ffffff;
+  --focus: #0e4d4b;
+  --font-body: 'IBM Plex Sans', ui-sans-serif, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --radius: 4px;
+  --corner: #f07b53;
+  --swallow-tube: #a9aca8;
+  --swallow-tube-opacity: .7;
+  --swallow-blur: 6px;
+  --swallow-track: rgba(181, 71, 42, .35);
+  --swallow-bolus: #111213;
+  --swallow-glow: drop-shadow(0 0 6px rgba(0, 0, 0, .35));
+  --swallow-ghost: .2;
+}
+@media (prefers-color-scheme: dark) {
+  /* At night the negative flips back to the positive film. */
+  :root[data-design='negative'] {
+    --bg: #121314; --surface: #1b1d1e; --text: #e6e7e5; --muted: #a3a8a6; --border: #2c2f31;
+    --accent: #f08a63; --accent-strong: #ffad8d; --accent-contrast: #121314; --focus: #7fc8c2;
+    --swallow-tube: #5d6266; --swallow-bolus: #ffffff; --swallow-glow: drop-shadow(0 0 7px rgba(255, 255, 255, .8));
+  }
+}
+[data-design='negative'] h1, [data-design='negative'] h2, [data-design='negative'] h3 { font-weight: 400; letter-spacing: 0; }
+[data-design='negative'] h1 { font-size: clamp(2.2rem, 6vw, 3rem); }
+[data-design='negative'] .prose h2, [data-design='negative'] .publications h2 { border-top: 1px solid var(--border); padding-top: 1.25rem; }
+[data-design='negative'] .site-header { border-bottom: 0; }
+[data-design='negative'] .site-header__name { font-family: var(--font-display); font-weight: 400; font-size: 1.35rem; }
+[data-design='negative'] .nav { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; }
+[data-design='negative'] .nav a[aria-current='page'] { color: var(--accent); border-bottom-color: var(--corner); }
+[data-design='negative'] .hero { border-bottom: 0; background: var(--surface); padding: clamp(1.25rem, 4vw, 2.25rem); border-radius: 2px; }
+[data-design='negative'] .hero__photo { border-radius: 2px; box-shadow: none; }
+[data-design='negative'] .hero__title { font-family: var(--font-mono); font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+[data-design='negative'] .frame__label {
+  display: block; position: absolute; left: 14px; right: 14px; bottom: -1.6rem; text-align: center;
+  font: 500 .66rem/1 var(--font-mono); letter-spacing: .24em; color: var(--muted);
+}
+[data-design='negative'] .hero { padding-bottom: 3rem; }
+[data-design='negative'] .button { border-radius: 2px; }
+[data-design='negative'] .card { border-radius: 2px; }
+[data-design='negative'] .site-footer { border-top-color: var(--border); }
+
+/* ---------- Fixes after phone review ---------- */
+.hero .frame { justify-self: start; width: max-content; }
+@media (max-width: 480px) {
+  [data-design='fluoro'] .nav, [data-design='negative'] .nav { font-size: .7rem; letter-spacing: .03em; }
+}
+
+/* ---------- Hero swallow animation: hidden unless a design opts in ---------- */
+.hero-swallow { display: none; margin: 0; }
+.hero-swallow svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.hero-swallow__labels { fill: var(--hs-label, currentColor); }
+
+/* Only Fluoro keeps the viewfinder corners and the label under the photo. */
+:root:not([data-design='fluoro']) .frame { padding: 0; }
+:root:not([data-design='fluoro']) .frame__c,
+:root:not([data-design='fluoro']) .frame__label { display: none; }
+
+/* ==========================================================
+   2 · NEGATIVE — mid motion: no target; peristaltic wave, glide, soft reveals
+   ========================================================== */
+[data-design='negative'] .hero { padding-bottom: clamp(1.25rem, 4vw, 2.25rem); }
+[data-design='negative'] .hero__photo { border-radius: 14px; }
+[data-design='negative'] .swallow { --tube-w: 14px; --tube-w-lg: 22px; --swallow-wave: rgba(23, 25, 26, .55); }
+[data-design='negative'] .swallow__wave--1 { display: block; }
+[data-design='negative'] .swallow__ghost[data-lag='1'] { opacity: .25; }
+[data-design='negative'].can-reveal .reveal:not(.is-in) { opacity: 0; transform: translateY(14px); }
+@media (prefers-color-scheme: dark) {
+  [data-design='negative'] .swallow { --swallow-wave: rgba(0, 0, 0, .8); }
+}
+
+/* ==========================================================
+   4 · SWALLOW — the dramatic one: a full esophagus down the page,
+   a looping swallow in the hero, peristalsis, trail, phase readout,
+   scan-wipe reveals, live-screen flicker.
+   ========================================================== */
+:root[data-design='swallow'] {
+  color-scheme: dark;
+  --bg: #0b0d10;
+  --surface: #14171b;
+  --text: #eceef0;
+  --muted: #a3aab1;
+  --border: #252a30;
+  --accent: #f07b53;
+  --accent-strong: #ffa07f;
+  --accent-contrast: #0b0d10;
+  --focus: #f0c24f;
+  --font-body: 'IBM Plex Sans', ui-sans-serif, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --radius: 6px;
+  --swallow-tube: #737a82;
+  --swallow-tube-opacity: .8;
+  --swallow-blur: 9px;
+  --swallow-track: rgba(240, 123, 83, .45);
+  --swallow-bolus: #ffffff;
+  --swallow-glow: drop-shadow(0 0 10px rgba(255, 255, 255, .95)) drop-shadow(0 0 24px rgba(240, 123, 83, .55));
+  --swallow-wall: rgba(240, 123, 83, .12);
+  --swallow-wave: rgba(5, 6, 8, .95);
+  --hs-screen-hi: #2a2f35;
+  --hs-tube: #6c737b;
+  --hs-track: rgba(240, 123, 83, .55);
+  --hs-wave: #050608;
+  --hs-bolus: #ffffff;
+  --hs-label: #f07b53;
+}
+[data-design='swallow'] body {
+  background:
+    radial-gradient(ellipse 80% 50% at 30% 0%, #1d2228 0%, rgba(11, 13, 16, 0) 70%) fixed,
+    var(--bg);
+}
+/* live fluoroscopy screen: faint scanlines that breathe */
+[data-design='swallow'] body::after {
+  content: ''; position: fixed; inset: 0; z-index: 4; pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 3px);
+  animation: scan-breathe 5s ease-in-out infinite;
+}
+@keyframes scan-breathe { 50% { opacity: .45; } }
+
+[data-design='swallow'] h1, [data-design='swallow'] h2, [data-design='swallow'] h3 { font-weight: 400; letter-spacing: 0; }
+[data-design='swallow'] main { counter-reset: frame; }
+[data-design='swallow'] main h2 { counter-increment: frame; }
+[data-design='swallow'] main h2::before {
+  content: 'FRAME ' counter(frame, decimal-leading-zero) ' —';
+  display: block; margin-bottom: .45rem;
+  font: 500 .72rem/1 var(--font-mono); letter-spacing: .24em; color: var(--accent);
+}
+[data-design='swallow'] .site-header { border-bottom-color: var(--border); background: rgba(11, 13, 16, .7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 20; }
+[data-design='swallow'] .site-header__name { font-family: var(--font-mono); font-weight: 500; font-size: .95rem; letter-spacing: .18em; text-transform: uppercase; }
+[data-design='swallow'] .site-header__suffix { color: var(--accent); }
+[data-design='swallow'] .nav { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+@media (max-width: 480px) { [data-design='swallow'] .nav { font-size: .7rem; letter-spacing: .03em; } }
+[data-design='swallow'] .nav a[aria-current='page'] { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Hero: name + photo, with the looping swallow beside (desktop) or above (phone). */
+[data-design='swallow'] .hero { border-bottom-color: var(--border); position: relative; }
+[data-design='swallow'] .hero__photo { border-radius: 50%; box-shadow: 0 0 0 1px var(--border), 0 18px 50px rgba(0, 0, 0, .6); }
+[data-design='swallow'] .hero__title { font-family: var(--font-mono); font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+[data-design='swallow'] .hero h1 { font-size: clamp(2.3rem, 7vw, 3.4rem); line-height: 1.05; }
+[data-design='swallow'] .hero-swallow { display: block; width: 100%; max-width: 240px; aspect-ratio: 300 / 320; justify-self: end; }
+@media (max-width: 899px) {
+  /* phone: photo and the swallow side by side, the name underneath */
+  [data-design='swallow'] .hero { grid-template-columns: 1fr 1fr; align-items: center; }
+  [data-design='swallow'] .hero .frame { grid-column: 1; grid-row: 1; }
+  [data-design='swallow'] .hero-swallow { grid-column: 2; grid-row: 1; max-width: 170px; }
+  [data-design='swallow'] .hero__text { grid-column: 1 / -1; }
+  [data-design='swallow'] .hero__photo { width: 140px; height: 140px; }
+}
+@media (min-width: 900px) {
+  [data-design='swallow'] .hero { grid-template-columns: auto 1fr 240px; }
+}
+[data-design='swallow'] .button { border-radius: 4px; font-family: var(--font-mono); font-weight: 500; text-transform: uppercase; letter-spacing: .08em; font-size: .82rem; box-shadow: 0 0 0 0 rgba(240, 123, 83, .5); animation: pulse 2.8s ease-out infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(240, 123, 83, .45); } 70%, 100% { box-shadow: 0 0 0 14px rgba(240, 123, 83, 0); } }
+
+/* The rail becomes a real esophagus: wide, glowing wall, peristalsis, trail, phase readout. */
+[data-design='swallow'] .swallow { --bolus: 10; --tube-w: 18px; width: 40px; }
+@media (min-width: 1180px) {
+  [data-design='swallow'] .swallow { --bolus: 14; --tube-w-lg: 40px; --tube-w: 40px; width: 150px; left: max(1rem, calc((100vw - 52rem) / 2 - 12rem)); }
+}
+@media (max-width: 1179px) { [data-design='swallow'] main.container, [data-design='swallow'] .site-footer .container { padding-right: 3rem; } }
+[data-design='swallow'] .swallow__wall { display: block; }
+[data-design='swallow'] .swallow__wave { display: block; }
+[data-design='swallow'] .swallow__ghost[data-lag='1'] { opacity: .45; }
+[data-design='swallow'] .swallow__ghost[data-lag='2'] { opacity: .28; }
+[data-design='swallow'] .swallow__ghost[data-lag='3'] { opacity: .16; }
+[data-design='swallow'] .swallow__ghost[data-lag='4'] { opacity: .08; }
+@media (min-width: 1180px) { [data-design='swallow'] .swallow__phase { display: block; } }
+[data-design='swallow'] .swallow__track { animation: track-flow 1.2s linear infinite; }
+@keyframes track-flow { to { stroke-dashoffset: -14; } }
+
+/* Scan-wipe reveal: sections are "exposed" top to bottom as they enter. */
+[data-design='swallow'].can-reveal .reveal:not(.is-in) { opacity: 0; transform: translateY(22px); clip-path: inset(0 0 100% 0); }
+[data-design='swallow'].can-reveal .reveal.is-in { clip-path: inset(0 0 0 0); }
+[data-design='swallow'] main h2.reveal.is-in::before { animation: blink 1.1s steps(2) 2; }
+@keyframes blink { 50% { opacity: 0; } }
+
+[data-design='swallow'] a.pub__title { text-decoration-color: rgba(240, 123, 83, .35); }
+[data-design='swallow'] .pub { transition: background .3s; }
+[data-design='swallow'] .pub:hover { background: linear-gradient(90deg, rgba(240, 123, 83, .07), transparent 70%); }
+[data-design='swallow'] .pub__citation strong { color: #fff; }
+[data-design='swallow'] .card { background: var(--surface); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-design='swallow'] body::after, [data-design='swallow'] .button, [data-design='swallow'] .swallow__track { animation: none; }
+}
+
+/* Classic = the original site: no swallow rail (the X-ray lives on the Research page). */
+[data-design='scholarly'] .swallow { display: none; }
+@media (max-width: 1179px) { [data-design='scholarly'] main.container, [data-design='scholarly'] .site-footer .container { padding-right: 1rem; } }
+@media (min-width: 768px) and (max-width: 1179px) { [data-design='scholarly'] main.container, [data-design='scholarly'] .site-footer .container { padding-right: 2rem; } }
