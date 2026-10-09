@@ -248,7 +248,7 @@
 /* The rail becomes a real esophagus: wide, glowing wall, peristalsis, trail, phase readout. */
 [data-design='swallow'] .swallow { --bolus: 10; --tube-w: 18px; width: 40px; }
 @media (min-width: 1180px) {
-  [data-design='swallow'] .swallow { --bolus: 14; --tube-w-lg: 40px; --tube-w: 40px; width: 150px; left: max(1rem, calc((100vw - 52rem) / 2 - 12rem)); }
+  [data-design='swallow'] .swallow { --bolus: 14; --tube-w-lg: 40px; --tube-w: 40px; width: 150px; right: max(1rem, calc((100vw - 52rem) / 2 - 12rem)); }
 }
 @media (max-width: 1179px) { [data-design='swallow'] main.container, [data-design='swallow'] .site-footer .container { padding-right: 3rem; } }
 [data-design='swallow'] .swallow__wall { display: block; }
