@@ -5,14 +5,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import Icon from '../components/Icon.astro';
 import HeroSwallow from '../components/HeroSwallow.astro';
-import SwallowFigure from '../components/SwallowFigure.astro';
 import photo from '../assets/denise-chua.jpeg';
 import { site } from '../data/site';
 
 const page = (await getEntry('pages', 'about'))!;
 const { Content } = await render(page);
 ---
-<BaseLayout title={site.name} description={page.data.description} jsonLd>
+<BaseLayout title={site.name} description={page.data.description} jsonLd rail>
   <section class="hero" aria-labelledby="hero-name">
     <span class="frame">
       <span class="frame__c frame__c--tl"></span><span class="frame__c frame__c--tr"></span>
@@ -41,7 +40,6 @@ const { Content } = await render(page);
     </div>
     <HeroSwallow />
   </section>
-  <SwallowFigure />
   <article class="prose">
     <Content />
   </article>

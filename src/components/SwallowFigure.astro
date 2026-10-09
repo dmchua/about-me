@@ -1,5 +1,5 @@
 ---
-// Home page background: an original line drawing of a person in side view (facing left),
+// Research page background: an original line drawing of a person in side view (facing left),
 // head to stomach. As the page scrolls, a bolus travels the swallowing path: over the
 // tongue, down the pharynx, through the esophagus, and into the stomach.
 // Decorative only (aria-hidden).
@@ -123,6 +123,7 @@ const rings = Array.from({ length: 14 }, (_, i) => 368 + i * 16);
     position: fixed; z-index: 0; top: 0; bottom: 0; pointer-events: none;
     right: max(-200px, calc((100vw - 52rem) / 2 - 364px)); width: min(88vw, 520px);
     -webkit-mask-image: linear-gradient(#000 75%, transparent); mask-image: linear-gradient(#000 75%, transparent);
+    opacity: .8;
   }
   .figure-bg svg { width: 100%; height: 100%; display: block; }
   body:has(.figure-bg) .site-header, body:has(.figure-bg) main, body:has(.figure-bg) .site-footer { position: relative; z-index: 1; }
@@ -142,7 +143,7 @@ const rings = Array.from({ length: 14 }, (_, i) => 368 + i * 16);
 
   /* Phones: the figure sits further right and fainter, so the text stays easy to read. */
   @media (max-width: 767px) {
-    .figure-bg { right: -38vw; width: 100vw; opacity: .7; }
+    .figure-bg { right: -38vw; width: 100vw; opacity: .55; }
     .fig-phase { display: none; }
   }
   @media print { .figure-bg { display: none; } }

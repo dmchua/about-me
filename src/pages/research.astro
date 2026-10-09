@@ -2,6 +2,7 @@
 import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Publication from '../components/Publication.astro';
+import SwallowFigure from '../components/SwallowFigure.astro';
 
 const page = (await getEntry('pages', 'research'))!;
 
@@ -14,7 +15,8 @@ const groups = [
   { type: 'unpublished', heading: 'Unpublished work' },
 ] as const;
 ---
-<BaseLayout title={page.data.title} description={page.data.description} rail>
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <SwallowFigure />
   <h1>{page.data.title}</h1>
   <div class="publications">
     {groups.map((g) => {
