@@ -24,6 +24,7 @@ const concepts = [
   { id: 'c', label: 'C · Timeline' },
   { id: 'd', label: 'D · Scroll story' },
   { id: 'e', label: 'E · Tap' },
+  { id: 'f', label: 'F · Background' },
 ];
 const looks = [
   { id: 'fluoro', label: 'Fluoro' },
@@ -37,9 +38,9 @@ const looks = [
     try {
       const q = new URLSearchParams(location.search), r = document.documentElement;
       const pick = (k, ok, d) => { const v = q.get(k) || localStorage.getItem(k); r.dataset[k] = ok.includes(v) ? v : d; };
-      pick('xray', ['a', 'b', 'c', 'd', 'e'], 'c');
-      pick('xlook', ['fluoro', 'negative', 'line'], 'fluoro');
-    } catch { document.documentElement.dataset.xray = 'c'; document.documentElement.dataset.xlook = 'fluoro'; }
+      pick('xray', ['a', 'b', 'c', 'd', 'e', 'f'], 'a');
+      pick('xlook', ['fluoro', 'negative', 'line'], 'line');
+    } catch { document.documentElement.dataset.xray = 'a'; document.documentElement.dataset.xlook = 'line'; }
   </script>
 
   <h1>{page.data.title}</h1>
@@ -91,6 +92,11 @@ const looks = [
     </div>
   </section>
 
+  <!-- F · the whole swallow, faint, behind the page -->
+  <div class="xr-concept xr-f">
+    <XrayHead mode="list" long labels />
+  </div>
+
   <!-- C · the head on top; its esophagus continues as the timeline spine -->
   <div class="xr-concept xr-c">
     <XrayHead mode="head" />
@@ -99,7 +105,8 @@ const looks = [
   <div class="research-layout">
     <!-- A · sticky X-ray beside the list -->
     <aside class="xr-concept xr-a">
-      <XrayHead mode="list" />
+      <XrayHead mode="list" long labels class="xr-a__big" />
+      <XrayHead mode="list" long class="xr-a__small" />
     </aside>
 
     <div class="publications">

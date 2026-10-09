@@ -6,11 +6,23 @@
 interface Props {
   mode: 'list' | 'loop' | 'head' | 'pinned' | 'tap';
   labels?: boolean;
+  long?: boolean; // continue down through the chest into the stomach
   class?: string;
 }
-const { mode, labels = false, class: cls } = Astro.props;
+const { mode, labels = false, long = false, class: cls } = Astro.props;
 const uid = `xr-${Math.random().toString(36).slice(2, 8)}`;
-const route = 'M 112 214 C 140 206 180 198 206 204 C 224 210 230 226 234 250 C 236 280 238 310 241 330 C 244 400 246 480 248 552';
+const neckRoute = 'M 112 214 C 140 206 180 198 206 204 C 224 210 230 226 234 250 C 236 280 238 310 241 330 C 244 400 246 480 248 552';
+const route = long ? `${neckRoute} C 249 650 250 740 252 800 C 254 830 275 845 300 840` : neckRoute;
+const h = long ? 900 : 560;
+// Profile from the back of the skull, over the face, down the front of the neck, then either a
+// neck cut-off (short) or the shoulders and chest (long), and back up the nape.
+const face = 'M 335 140 C 340 80 300 30 235 22 C 170 15 120 45 108 95 C 103 112 100 125 96 138 C 90 150 72 165 70 178 C 69 186 82 190 92 192 C 90 200 92 206 96 210 C 90 216 92 224 97 230 C 92 240 94 252 100 262 C 108 274 140 280 172 284 C 182 300 188 330 190 370';
+const nape = 'C 300 400 300 330 305 280 C 312 240 330 200 335 140 Z';
+const silhouette = long
+  ? `${face} C 192 420 188 455 186 470 C 180 520 150 560 110 600 C 80 640 70 700 70 900 L 420 900 C 420 760 410 640 380 590 C 350 550 320 520 308 470 ${nape}`
+  : `${face} C 192 420 186 470 170 560 L 400 560 L 400 520 C 360 500 320 480 308 440 ${nape}`;
+const thoracic = [534, 574, 614, 654, 694, 734];
+const ribs = [570, 612, 654, 696, 738];
 const vertebrae = [230, 268, 306, 344, 382, 420, 458, 496];
 const anatomy = [
   { name: 'Tongue', x: 160, y: 224, ly: 150 },
@@ -20,10 +32,11 @@ const anatomy = [
   { name: 'Larynx', x: 206, y: 340, ly: 330 },
   { name: 'UES', x: 242, y: 345, ly: 375 },
   { name: 'Esophagus', x: 247, y: 460, ly: 460 },
+  ...(long ? [{ name: 'Diaphragm', x: 330, y: 765, ly: 770 }, { name: 'Stomach', x: 300, y: 840, ly: 845 }] : []),
 ];
 ---
 <figure class:list={['xr', cls]} data-mode={mode} aria-hidden="true">
-  <svg viewBox={labels ? '30 10 500 560' : '50 10 330 560'} preserveAspectRatio="xMidYMid meet">
+  <svg viewBox={labels ? `30 10 500 ${h}` : `50 10 330 ${h}`} preserveAspectRatio="xMidYMid meet">
     <defs>
       <filter id={`${uid}-soft`} x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6" /></filter>
       <filter id={`${uid}-bone`} x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.2" /></filter>
@@ -35,12 +48,24 @@ const anatomy = [
       </radialGradient>
     </defs>
 
-    <rect class="xr-screen" x="0" y="0" width="560" height="580" fill={`url(#${uid}-screen)`} />
+    <rect class="xr-screen" x="0" y="0" width="560" height={h + 20} fill={`url(#${uid}-screen)`} />
 
     <g class="xr-body">
+      {long && (
+        <g class="xr-chest">
+          <g class="xr-bone" filter={`url(#${uid}-bone)`}>
+            {thoracic.map((y) => <rect x="260" y={y} width="44" height="32" rx="8" />)}
+            {ribs.map((y) => <path class="xr-line xr-rib" d={`M 300 ${y} C 230 ${y + 10} 150 ${y + 40} 104 ${y + 86}`} stroke-width="5" />)}
+          </g>
+          <path class="xr-organ-line" filter={`url(#${uid}-bone)`} d="M 84 806 C 160 742 330 742 420 792" stroke-width="5" />
+          <path class="xr-organ" filter={`url(#${uid}-bone)`} d="M 252 800 C 250 830 262 862 300 868 C 340 874 372 850 368 820 C 364 795 330 785 300 795 C 280 800 262 800 252 800 Z" />
+          <path class="xr-esoph" filter={`url(#${uid}-bone)`} d="M 248 552 C 249 650 250 740 252 800" stroke-width="9" />
+          <path class="xr-air-extra" filter={`url(#${uid}-soft)`} d="M 204 560 C 204 600 205 630 206 650" stroke-width="16" />
+        </g>
+      )}
       <!-- soft tissue: head and neck in profile -->
       <path class="xr-tissue" filter={`url(#${uid}-soft)`}
-        d="M 335 140 C 340 80 300 30 235 22 C 170 15 120 45 108 95 C 103 112 100 125 96 138 C 90 150 72 165 70 178 C 69 186 82 190 92 192 C 90 200 92 206 96 210 C 90 216 92 224 97 230 C 92 240 94 252 100 262 C 108 274 140 280 172 284 C 182 300 188 330 190 370 C 192 420 186 470 170 560 L 400 560 L 400 520 C 360 500 320 480 308 440 C 300 400 300 330 305 280 C 312 240 330 200 335 140 Z" />
+        d={silhouette} />
       <!-- bone -->
       <g class="xr-bone" filter={`url(#${uid}-bone)`}>
         <path class="xr-line" d="M 300 150 C 315 90 285 45 235 38 C 180 32 135 58 122 100 C 118 115 117 125 118 135" stroke-width="7" />

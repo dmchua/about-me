@@ -25,14 +25,14 @@
       t = clamp(t);
       const p = route.getPointAtLength(t * len);
       const speed = Math.min(Math.abs(t - last) * 40, 0.6); last = t;
-      const down = p.y > 212;
+      const down = p.y > 212 && p.y < 806;
       const along = 12 * (1 + speed), across = 9 * (1 - speed * 0.3);
       bolus.setAttribute('cx', String(p.x)); bolus.setAttribute('cy', String(p.y));
       bolus.setAttribute('rx', String(down ? across : along));
       bolus.setAttribute('ry', String(down ? along : across));
       bolus.style.opacity = t <= 0 || t >= 1 ? '0.85' : '1';
       coat.style.strokeDashoffset = String(len * (1 - t));
-      const ph = p.x < 206 && p.y < 212 ? 'oral' : p.y < 335 ? 'pharyngeal' : 'esophageal';
+      const ph = p.x < 206 && p.y < 212 ? 'oral' : p.y < 335 ? 'pharyngeal' : p.y < 806 ? 'esophageal' : 'stomach';
       phase.textContent = ph.toUpperCase();
       el.dataset.phase = ph;
       labels.forEach((l) => {
