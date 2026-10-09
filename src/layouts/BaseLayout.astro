@@ -1,20 +1,16 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import SwallowRail from '../components/SwallowRail.astro';
-import DesignSwitcher from '../components/DesignSwitcher.astro';
-import { site, links, designs, defaultDesign, showDesignSwitcher } from '../data/site';
+import { site, links } from '../data/site';
 import '../styles/global.css';
-import '../styles/designs.css';
 
 interface Props {
   title: string; // page name, e.g. "Research". Use the site name for the home page.
   description: string;
   jsonLd?: boolean; // include Person structured data (home page)
   noindex?: boolean;
-  rail?: boolean; // the scrolling bolus line down the side (Research page)
 }
-const { title, description, jsonLd = false, noindex = false, rail = false } = Astro.props;
+const { title, description, jsonLd = false, noindex = false } = Astro.props;
 const fullTitle = title === site.name ? site.name : `${title} — ${site.name}`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(site.ogImage, Astro.site).href;
@@ -45,7 +41,7 @@ const person = {
 };
 ---
 <!doctype html>
-<html lang="en" data-design={defaultDesign}>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -59,19 +55,6 @@ const person = {
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" />
-    {showDesignSwitcher && (
-      <script is:inline define:vars={{ ids: designs.map((d) => d.id) }}>
-        // Pick the design before first paint: ?design=… wins, then the last choice.
-        try {
-          const q = new URLSearchParams(location.search).get('design');
-          const d = ids.includes(q) ? q : localStorage.getItem('design');
-          if (ids.includes(d)) { document.documentElement.dataset.design = d; localStorage.setItem('design', d); }
-        } catch {}
-      </script>
-    )}
 
     <meta property="og:type" content={jsonLd ? 'profile' : 'website'} />
     <meta property="og:site_name" content={site.name} />
@@ -98,7 +81,5 @@ const person = {
       <slot />
     </main>
     <Footer />
-    {rail && <SwallowRail />}
-    {showDesignSwitcher && <DesignSwitcher />}
   </body>
 </html>
