@@ -1,0 +1,54 @@
+---
+// "Latest posts" on the About page: Instagram's official embeds for the posts listed in
+// src/data/instagram.ts. With no posts listed, it shows a card that links to the account.
+import Icon from './Icon.astro';
+import { instagramPosts } from '../data/instagram';
+import { links } from '../data/site';
+
+const ig = links.find((l) => l.icon === 'instagram')!;
+const posts = instagramPosts.slice(0, 3);
+---
+<section class="latest" aria-labelledby="latest-heading">
+  <h2 id="latest-heading">Latest posts</h2>
+  <p class="latest__intro">
+    From <a href={ig.url} rel="me noopener">The Bolus Brief</a>, my Instagram page.
+  </p>
+
+  {posts.length > 0 ? (
+    <>
+      <div class="latest__grid">
+        {posts.map((url) => (
+          <blockquote class="instagram-media" data-instgrm-permalink={url} data-instgrm-version="14">
+            <a href={url}>View this post on Instagram</a>
+          </blockquote>
+        ))}
+      </div>
+      <script is:inline async src="https://www.instagram.com/embed.js"></script>
+    </>
+  ) : (
+    <a class="latest__card" href={ig.url} rel="me noopener">
+      <Icon name="instagram" size={28} />
+      <span>
+        <span class="latest__handle">{ig.handle}</span>
+        <span class="latest__cta">Follow The Bolus Brief on Instagram</span>
+      </span>
+    </a>
+  )}
+</section>
+
+<style>
+  .latest { max-width: var(--measure); margin-top: 3rem; }
+  .latest__intro { color: var(--muted); }
+  .latest__grid { display: grid; gap: 1rem; }
+  @media (min-width: 900px) { .latest__grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); } }
+  .latest__grid :global(.instagram-media) { min-width: 0 !important; width: 100% !important; margin: 0 !important; }
+  .latest__card {
+    display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.25rem; max-width: 26rem;
+    border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
+    color: var(--text); text-decoration: none;
+  }
+  .latest__card:hover { border-color: var(--accent); }
+  .latest__card :global(.icon) { color: var(--accent); }
+  .latest__handle { display: block; font-weight: 600; }
+  .latest__cta { display: block; color: var(--muted); font-size: .95rem; }
+</style>

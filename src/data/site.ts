@@ -16,12 +16,13 @@ export const site = {
   ogImage: '/images/og.jpg',
 };
 
-export type SocialLink = { label: string; handle: string; url: string; icon: 'email' | 'linkedin' | 'x' | 'orcid' };
+export type SocialLink = { label: string; handle: string; url: string; icon: 'email' | 'linkedin' | 'x' | 'orcid' | 'instagram' };
 
 export const links: SocialLink[] = [
   { label: 'Email', handle: site.email, url: `mailto:${site.email}`, icon: 'email' },
   { label: 'LinkedIn', handle: 'in/dnsemae', url: 'https://www.linkedin.com/in/dnsemae/', icon: 'linkedin' },
   { label: 'X (Twitter)', handle: '@denisechuaSLP', url: 'https://x.com/denisechuaSLP', icon: 'x' },
+  { label: 'Instagram', handle: '@thebolusbrief', url: 'https://www.instagram.com/thebolusbrief/', icon: 'instagram' },
   { label: 'ORCID', handle: '0000-0001-6211-2161', url: 'https://orcid.org/0000-0001-6211-2161', icon: 'orcid' },
 ];
 
