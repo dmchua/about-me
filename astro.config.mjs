@@ -8,6 +8,8 @@ export const SITE_URL = 'https://denisechua.me';
 export default defineConfig({
   site: SITE_URL,
   trailingSlash: 'always',
+  // Old Jekyll URLs. GitHub Pages can't redirect on the server, so Astro writes a redirect page for each.
+  redirects: { '/about/': '/' },
   build: { format: 'directory' },
   integrations: [sitemap()],
   devToolbar: { enabled: false },

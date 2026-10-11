@@ -4,6 +4,8 @@ The site deploys to GitHub Pages from the `astro-rebuild` branch of `dmchua/abou
 
 ## 1. Prepare the repo (Claude)
 
+Done on 2026-10-11, except the old PDF names (see the backlog).
+
 1. Add `.github/workflows/deploy.yml`, which builds the site with the official Astro action and deploys it to GitHub Pages on every push to `astro-rebuild`.
 2. Copy the old PDFs to their old filenames, and add redirect pages for `/about/` and `/publications/`. GitHub Pages ignores `public/_redirects`, so the copies keep old links working.
 
