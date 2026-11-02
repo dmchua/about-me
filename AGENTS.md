@@ -38,7 +38,6 @@ Run `npm run build` before every commit.
 - `.github/workflows/deploy.yml` builds the site and deploys it to GitHub Pages on every push to `master`. The `github-pages` environment only allows `master`. `astro-rebuild` is the old working branch.
 - Cloudflare is DNS only, with the proxy off (grey cloud). Don't turn the proxy on, because GitHub needs direct traffic to issue the HTTPS certificate.
 - GitHub Pages ignores `public/_headers` and `public/_redirects`. For an old URL to keep working, a file must exist at that path, or a redirect must be listed in `redirects` in `astro.config.mjs`.
-- Out of date, don't follow: the "Deploy (Cloudflare)" and "Cut-over" sections of `README.md`, `wrangler.jsonc`, and `cutover/`. They describe an earlier plan.
 
 ## Content rules
 

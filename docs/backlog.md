@@ -21,11 +21,12 @@ Work for Denise's website, grouped by status. Move an item to **Done** when it s
 
 - Analytics: Cloudflare Web Analytics (needs the site token from the Cloudflare dashboard) plus Google Search Console.
 - Find new papers automatically: a weekly GitHub Action that runs `npm run find-new-papers` and opens a PR. Try the `/check-papers` skill first.
-- Rewrite the stale "Deploy (Cloudflare)" and "Cut-over" sections of `README.md`, and remove `wrangler.jsonc` and `cutover/`.
 - Add Google Scholar and HKU Scholars Hub links.
 - Show the newest Instagram posts automatically. This needs the Instagram API, a Business or Creator account, and a scheduled rebuild.
 
 ## Done
+
+- 2026-11-03: README rewritten for the live setup. Removed `wrangler.jsonc` and `cutover/` (old Cloudflare plan).
 
 - 2026-11-03: Light/dark switch in the header. `http://` now redirects to `https://`.
 
