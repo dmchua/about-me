@@ -1,6 +1,6 @@
 # Editing the website
 
-You only need to edit Markdown text files. When you commit a change on GitHub, the site rebuilds and is live in about a minute.
+You only need to edit Markdown text files. When you commit a change to the `master` branch on GitHub, the site rebuilds and is live at denisechua.me in about a minute.
 
 ## The quickest way (in the browser)
 
@@ -19,6 +19,7 @@ You only need to edit Markdown text files. When you commit a change on GitHub, t
 | Resources page and handout list | `src/content/pages/resources.md` |
 | Contact page | `src/content/pages/contact.md` |
 | Name, job title, email, social links, menu | `src/data/site.ts` |
+| Instagram posts under "Latest posts" | `src/data/instagram.ts` (paste the post links, newest first) |
 | Profile photo | replace `src/assets/denise-chua.jpeg` (keep the file name) |
 
 The text between the two `---` lines at the top of each file is settings (title, description for Google). Everything below it is the page.

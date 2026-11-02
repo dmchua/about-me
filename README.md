@@ -42,9 +42,9 @@ Setup:
 
 - **Hosting:** GitHub Pages on `dmchua/about-me`. The source is set to GitHub Actions, and the custom domain is `denisechua.me` with Enforce HTTPS on.
 - **DNS:** Cloudflare, set to **DNS only** (grey cloud). There are 4 A records and 4 AAAA records for GitHub Pages, a `www` CNAME to `dmchua.github.io`, and a TXT record that verifies the domain to the `dmchua` account. Don't turn on the Cloudflare proxy, because GitHub needs direct traffic to renew the HTTPS certificate.
-- **Old links:** GitHub redirects `dmchua.github.io/about-me/...` to the same path on `denisechua.me`. GitHub Pages ignores `public/_redirects` and `public/_headers`. To keep an old URL working, put a file at that path or add it to `redirects` in `astro.config.mjs`.
+- **Old links:** GitHub redirects `dmchua.github.io/about-me/...` to the same path on `denisechua.me`. GitHub Pages can't do server redirects or custom headers. To keep an old URL working, put a file at that path or add it to `redirects` in `astro.config.mjs`.
 
-[docs/launch.md](docs/launch.md) has the full launch steps and the reason for each one.
+[docs/launch.md](docs/launch.md) lists every DNS record and setting, and the reason for each one.
 
 ## Project docs
 
