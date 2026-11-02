@@ -3,6 +3,8 @@ import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Publication from '../components/Publication.astro';
 import SwallowFigure from '../components/SwallowFigure.astro';
+import Icon from '../components/Icon.astro';
+import { links } from '../data/site';
 
 const page = (await getEntry('pages', 'research'))!;
 
@@ -14,10 +16,14 @@ const groups = [
   { type: 'conference', heading: 'Selected conference papers' },
   { type: 'unpublished', heading: 'Unpublished work' },
 ] as const;
+const scholar = links.find((l) => l.icon === 'scholar')!;
 ---
 <BaseLayout title={page.data.title} description={page.data.description}>
   <SwallowFigure />
   <h1>{page.data.title}</h1>
+  <p class="full-list">
+    <a href={scholar.url} rel="noopener">Full list of publications on Google Scholar <Icon name="external" size={15} /></a>
+  </p>
   <div class="publications">
     {groups.map((g) => {
       const items = pubs.filter((p) => p.data.type === g.type);
