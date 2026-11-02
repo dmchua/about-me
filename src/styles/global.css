@@ -1,14 +1,17 @@
 /* ---------- Tokens ---------- */
+/* Each color is light-dark(light, dark). color-scheme picks the side: the system setting by default,
+   or the reader's choice from the header switch (data-theme on <html>, set in BaseLayout). */
 :root {
-  --bg: #fbfaf7;
-  --surface: #f2efe8;
-  --text: #1d2125;
-  --muted: #555c63;
-  --border: #dedad0;
-  --accent: #1f5e5c;
-  --accent-strong: #164644;
-  --accent-contrast: #ffffff;
-  --focus: #b3541e;
+  color-scheme: light dark;
+  --bg: light-dark(#fbfaf7, #121615);
+  --surface: light-dark(#f2efe8, #1b2120);
+  --text: light-dark(#1d2125, #e7e9e7);
+  --muted: light-dark(#555c63, #a9b1ae);
+  --border: light-dark(#dedad0, #2d3634);
+  --accent: light-dark(#1f5e5c, #7cc6c0);
+  --accent-strong: light-dark(#164644, #a3dbd6);
+  --accent-contrast: light-dark(#ffffff, #0d1413);
+  --focus: light-dark(#b3541e, #f0a36b);
 
   --font-body: ui-sans-serif, -apple-system, 'Segoe UI', 'Helvetica Neue', 'Noto Sans', Arial, sans-serif;
   --font-display: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Charter, 'Bitstream Charter', Georgia, serif;
@@ -16,21 +19,9 @@
   --measure: 68ch;
   --radius: 10px;
   --space: clamp(1rem, 2.5vw, 1.5rem);
-  color-scheme: light dark;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #121615;
-    --surface: #1b2120;
-    --text: #e7e9e7;
-    --muted: #a9b1ae;
-    --border: #2d3634;
-    --accent: #7cc6c0;
-    --accent-strong: #a3dbd6;
-    --accent-contrast: #0d1413;
-    --focus: #f0a36b;
-  }
-}
+:root[data-theme='light'] { color-scheme: light; }
+:root[data-theme='dark'] { color-scheme: dark; }
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -75,9 +66,19 @@ a:hover { color: var(--accent-strong); text-decoration-thickness: 2px; }
 .nav a { color: var(--muted); text-decoration: none; padding-block: .35rem; display: inline-block; border-bottom: 2px solid transparent; }
 .nav a:hover { color: var(--text); }
 .nav a[aria-current='page'] { color: var(--text); border-bottom-color: var(--accent); }
+.theme-toggle {
+  align-self: center; display: inline-grid; place-items: center; width: 2.25rem; height: 2.25rem; margin-inline-start: -0.75rem;
+  border: 1px solid var(--border); border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer;
+}
+.theme-toggle:hover { color: var(--text); background: var(--surface); }
+.theme-toggle .icon--sun { display: none; }
+:root[data-theme='dark'] .theme-toggle .icon--sun { display: block; }
+:root[data-theme='dark'] .theme-toggle .icon--moon { display: none; }
 @media (max-width: 480px) {
   .site-header__suffix { display: none; }
-  .site-header__inner nav { width: 100%; }
+  .site-header__name { margin-inline-end: auto; }
+  .theme-toggle { margin-inline-start: 0; }
+  .site-header__inner nav { width: 100%; order: 1; }
   .nav { justify-content: space-between; gap: .1rem .5rem; font-size: .875rem; }
 }
 

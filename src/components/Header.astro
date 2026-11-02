@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 import { nav, site } from '../data/site';
 const path = Astro.url.pathname;
 const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
@@ -13,5 +14,31 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
         ))}
       </ul>
     </nav>
+    <button type="button" class="theme-toggle" aria-label="Dark mode" aria-pressed="false">
+      <Icon name="moon" />
+      <Icon name="sun" />
+    </button>
   </div>
 </header>
+
+<script>
+  const root = document.documentElement;
+  const button = document.querySelector<HTMLButtonElement>('.theme-toggle')!;
+  const system = matchMedia('(prefers-color-scheme: dark)');
+
+  function setTheme(theme: 'light' | 'dark', remember: boolean) {
+    root.dataset.theme = theme;
+    button.setAttribute('aria-pressed', String(theme === 'dark'));
+    const bg = getComputedStyle(document.body).backgroundColor;
+    document.querySelectorAll('meta[name="theme-color"]').forEach((m) => m.setAttribute('content', bg));
+    if (remember) try { localStorage.setItem('theme', theme); } catch {}
+  }
+
+  setTheme(root.dataset.theme === 'dark' ? 'dark' : 'light', false);
+  button.addEventListener('click', () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark', true));
+  system.addEventListener('change', (e) => {
+    let saved = null;
+    try { saved = localStorage.getItem('theme'); } catch {}
+    if (!saved) setTheme(e.matches ? 'dark' : 'light', false);
+  });
+</script>
