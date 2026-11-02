@@ -1,5 +1,7 @@
 # How to launch the site on denisechua.me
 
+Launched on 2026-11-02. Keep this file as a record of how the site is set up.
+
 The site deploys to GitHub Pages from the `master` branch of `dmchua/about-me`. Cloudflare only holds the domain and its DNS records. Do the steps in order.
 
 ## 1. Prepare the repo (Claude)

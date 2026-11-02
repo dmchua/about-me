@@ -4,8 +4,7 @@ Work for Denise's website, grouped by status. Move an item to **Done** when it s
 
 ## Next
 
-- **Launch on `denisechua.me`.** Follow the steps in [launch.md](launch.md). Owners: Sean (Cloudflare DNS and GitHub Pages settings, logged in as Denise), Claude (deploy workflow, push to `master`, checks).
-- **Check the DNS records against GitHub's docs before adding them.** The A records (`185.199.108.153` to `185.199.111.153`) are GitHub Pages' servers, listed in "Managing a custom domain for your GitHub Pages site". Optional IPv6 `AAAA` records: `2606:50c0:8000::153` to `2606:50c0:8003::153`.
+- **Check that `http://denisechua.me` redirects to `https://`.** Enforce HTTPS was ticked on 2026-11-02, but plain http still returned 200 right after.
 - **Add Instagram posts to "Latest posts".** Paste post links into `src/data/instagram.ts`. Until a link is there, the About page shows a card that links to `@thebolusbrief`.
 
 - **Test the `/check-papers` skill.** Run it in Claude Code. Check that it finds nothing today, then test a draft by temporarily removing a publication file. Skill: `.claude/skills/check-papers/SKILL.md`. Script: `scripts/find-new-papers.mjs`.
@@ -28,6 +27,8 @@ Work for Denise's website, grouped by status. Move an item to **Done** when it s
 - Show the newest Instagram posts automatically. This needs the Instagram API, a Business or Creator account, and a scheduled rebuild.
 
 ## Done
+
+- 2026-11-02: Launched on `denisechua.me`. DNS in Cloudflare (4 A, 4 AAAA, `www` CNAME, all DNS only), domain verified on the `dmchua` account (TXT `_github-pages-challenge-dmchua`), Pages Source set to GitHub Actions, custom domain set, Enforce HTTPS on. Certificate covers apex and www, expires 2027-01-31, renewed by GitHub.
 
 - 2026-11-02: About page kept with the timeline, no "Hello" opener, and the RSLP line.
 - 2026-11-02: Old PDF links: new paths in `files/` only. Old links such as `/Muscles of Swallowing.pdf` break after launch.
