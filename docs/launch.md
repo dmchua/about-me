@@ -1,13 +1,13 @@
 # How to launch the site on denisechua.me
 
-The site deploys to GitHub Pages from the `astro-rebuild` branch of `dmchua/about-me`. Cloudflare only holds the domain and its DNS records. Do the steps in order.
+The site deploys to GitHub Pages from the `master` branch of `dmchua/about-me`. Cloudflare only holds the domain and its DNS records. Do the steps in order.
 
 ## 1. Prepare the repo (Claude)
 
-Done on 2026-10-11, except the old PDF names (see the backlog).
+Done on 2026-11-02.
 
-1. Add `.github/workflows/deploy.yml`, which builds the site with the official Astro action and deploys it to GitHub Pages on every push to `astro-rebuild`.
-2. Copy the old PDFs to their old filenames, and add redirect pages for `/about/` and `/publications/`. GitHub Pages ignores `public/_redirects`, so the copies keep old links working.
+1. Add `.github/workflows/deploy.yml`, which builds the site with the official Astro action and deploys it to GitHub Pages on every push to `master`. The `github-pages` environment only allows deploys from `master`, so a deploy from `astro-rebuild` fails.
+2. Add redirect pages for `/about/` and `/publications/`. PDFs live only at their new paths in `files/`, so old PDF links break on purpose.
 
 ## 2. Add the DNS records (Sean, Cloudflare dashboard)
 
@@ -25,17 +25,18 @@ Done on 2026-10-11, except the old PDF names (see the backlog).
 
 The proxy must stay off. GitHub can't issue the HTTPS certificate while Cloudflare proxies the traffic.
 
-## 3. Change the Pages settings (Denise, GitHub)
+## 3. Change the Pages settings (Sean as Denise, GitHub)
 
-Only the repo owner can change these settings. Do this step after step 2.
+Only the repo owner can change these settings, so log in as Denise. Do this step after step 2.
 
 1. Open `github.com/dmchua/about-me` and go to **Settings → Pages**.
 2. Under **Build and deployment → Source**, select **GitHub Actions**.
-3. Under **Custom domain**, enter `denisechua.me` and click **Save**.
+3. Claude pushes the new site to `master`. It joins the unrelated histories with `git merge -s ours --allow-unrelated-histories`, so `master` keeps the old Jekyll history without a force push. Do this only after step 2. Otherwise the old Jekyll build runs on the Astro code.
+4. Under **Custom domain**, enter `denisechua.me` and click **Save**.
 
 The old Jekyll site stops, and the new site goes live when the deploy finishes. From then on, GitHub redirects each old `dmchua.github.io/about-me/...` link to the same page on `denisechua.me`.
 
-## 4. Turn on HTTPS (Denise, GitHub)
+## 4. Turn on HTTPS (Sean as Denise, GitHub)
 
 Within 24 hours, open **Settings → Pages** again and tick **Enforce HTTPS**. The option appears after GitHub issues the certificate.
 
@@ -43,7 +44,7 @@ Within 24 hours, open **Settings → Pages** again and tick **Enforce HTTPS**. T
 
 - `https://denisechua.me` and `https://www.denisechua.me` load the new site.
 - `https://dmchua.github.io/about-me/research/` redirects to `https://denisechua.me/research/`.
-- Old PDF links, such as `/about-me/DMNChua_CV2026.pdf`, still open the CV.
+- `https://denisechua.me/files/DMNChua_CV2026.pdf` opens the CV.
 
 ## 6. After launch (Denise, Sean)
 
