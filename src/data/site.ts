@@ -10,7 +10,7 @@ export const site = {
   affiliation: { name: 'The University of Hong Kong', url: 'https://www.hku.hk/' },
   location: 'Hong Kong',
   description:
-    'Denise Mae Chua, PhD — speech-language pathologist and swallowing (dysphagia) researcher at the Swallowing Research Laboratory, University of Hong Kong.',
+    'Denise Mae Chua, PhD, RSLP — speech-language pathologist and swallowing (dysphagia) researcher at the Swallowing Research Laboratory, University of Hong Kong.',
   email: 'denisechua.slp@gmail.com',
   cv: '/files/DMNChua_CV2026.pdf',
   ogImage: '/images/og.jpg',
