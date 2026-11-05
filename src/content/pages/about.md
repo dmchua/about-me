@@ -17,12 +17,12 @@ See my [Research](/research/) page for my publications and conference papers.
 ### Professional Experience
 - **2025–present** · Research Officer, Swallowing Research Laboratory, The University of Hong Kong
 - **2020–2025** · Research Assistant, Swallowing Research Laboratory, The University of Hong Kong
-- **2020** · Speech Therapist II, Philippine General Hospital
+- **2020** · Speech Therapist, Philippine General Hospital
 - **2017–2019** · Instructor, University of the Philippines Manila
 
 ### Education
 
-- **2021–2025** · PhD in Speech-Language Pathology (Swallowing Disorders), The University of Hong Kong
+- **2020–2025** · PhD in Speech-Language Pathology (Swallowing Disorders), The University of Hong Kong
 - **2013-2017** · BS Speech Pathology, University of the Philippines Manila
   
 
