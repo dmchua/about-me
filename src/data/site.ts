@@ -8,7 +8,7 @@ export const site = {
   shortName: 'Denise Chua',
   givenName: 'Denise',
   familyName: 'Chua',
-  jobTitle: 'Speech-Language Pathologist and Researcher',
+  jobTitle: 'Researcher and Speech-Language Pathologist',
   role: 'Research Officer',
   lab: { name: 'Swallowing Research Laboratory', url: 'https://swallow.edu.hku.hk/' },
   affiliation: { name: 'The University of Hong Kong', url: 'https://www.hku.hk/' },
