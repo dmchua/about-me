@@ -1,6 +1,6 @@
 // Site-wide details. Edit these values to change the name, title, links, etc.
 export const site = {
-  name: 'Denise Mae Chua, PhD',
+  name: 'Denise Mae Chua, PhD, RSLP',
   shortName: 'Denise Chua',
   givenName: 'Denise Mae',
   familyName: 'Chua',
