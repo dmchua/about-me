@@ -1,8 +1,12 @@
 // Site-wide details. Edit these values to change the name, title, links, etc.
+// Letters after her name. The header, home page, footer and tab titles all use this.
+const credentials = 'PhD, RSLP';
+
 export const site = {
-  name: 'Denise Mae Chua, PhD, RSLP',
+  name: `Denise Chua, ${credentials}`,
+  credentials,
   shortName: 'Denise Chua',
-  givenName: 'Denise Mae',
+  givenName: 'Denise',
   familyName: 'Chua',
   jobTitle: 'Speech-Language Pathologist and Researcher',
   role: 'Research Officer',
@@ -10,7 +14,7 @@ export const site = {
   affiliation: { name: 'The University of Hong Kong', url: 'https://www.hku.hk/' },
   location: 'Hong Kong',
   description:
-    'Denise Mae Chua, PhD, RSLP — speech-language pathologist and swallowing (dysphagia) researcher at the Swallowing Research Laboratory, University of Hong Kong.',
+    'Denise Chua, PhD, RSLP — speech-language pathologist and swallowing (dysphagia) researcher at the Swallowing Research Laboratory, University of Hong Kong.',
   email: 'denisechua.slp@gmail.com',
   cv: '/files/DMNChua_CV2026.pdf',
   ogImage: '/images/og.jpg',
@@ -23,7 +27,7 @@ export const links: SocialLink[] = [
   { label: 'LinkedIn', handle: 'in/dnsemae', url: 'https://www.linkedin.com/in/dnsemae/', icon: 'linkedin' },
   { label: 'X (Twitter)', handle: '@denisechuaSLP', url: 'https://x.com/denisechuaSLP', icon: 'x' },
   { label: 'Instagram', handle: '@thebolusbrief', url: 'https://www.instagram.com/thebolusbrief/', icon: 'instagram' },
-  { label: 'Google Scholar', handle: 'Denise Mae Chua', url: 'https://scholar.google.com/citations?user=QPvlf3cAAAAJ', icon: 'scholar' },
+  { label: 'Google Scholar', handle: 'Denise Chua', url: 'https://scholar.google.com/citations?user=QPvlf3cAAAAJ', icon: 'scholar' },
   { label: 'ORCID', handle: '0000-0001-6211-2161', url: 'https://orcid.org/0000-0001-6211-2161', icon: 'orcid' },
 ];
 

@@ -1,6 +1,6 @@
 ---
 title: Contact
-description: Contact Denise Mae Chua, PhD for discussions and research collaborations.
+description: Contact Denise Chua, PhD, RSLP for discussions and research collaborations.
 ---
 
 I am open for discussions and collaborations! ☺️

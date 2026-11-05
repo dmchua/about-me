@@ -1,6 +1,6 @@
 ---
 title: About
-description: Denise Mae Chua, PhD, RSLP — speech-language pathologist and swallowing researcher at the Swallowing Research Laboratory, University of Hong Kong.
+description: Denise Chua, PhD, RSLP — speech-language pathologist and swallowing researcher at the Swallowing Research Laboratory, University of Hong Kong.
 ---
 Hi! My name is Denise. I'm a researcher and SLP based in Hong Kong. 🇭🇰 
 

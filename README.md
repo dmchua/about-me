@@ -1,6 +1,6 @@
-# Denise Mae Chua, PhD: website
+# Denise Chua, PhD: website
 
-Personal academic website of Denise Mae Chua, PhD, a swallowing and dysphagia researcher at the University of Hong Kong.
+Personal academic website of Denise Chua, PhD, a swallowing and dysphagia researcher at the University of Hong Kong.
 
 **Live at [denisechua.me](https://denisechua.me).** Built with [Astro](https://astro.build) and hosted on GitHub Pages.
 

@@ -6,7 +6,7 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
 ---
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="site-header__name" href="/">{site.shortName}<span class="site-header__suffix">, PhD</span></a>
+    <a class="site-header__name" href="/">{site.shortName}<span class="site-header__suffix">, {site.credentials}</span></a>
     <nav aria-label="Main">
       <ul class="nav">
         {nav.map((item) => (

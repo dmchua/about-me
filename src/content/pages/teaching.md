@@ -1,6 +1,6 @@
 ---
 title: Teaching
-description: Teaching by Denise Mae Chua at the University of Hong Kong and the University of the Philippines Manila, including certificates and invited lectures.
+description: Teaching by Denise Chua at the University of Hong Kong and the University of the Philippines Manila, including certificates and invited lectures.
 ---
 
 ## Certificates

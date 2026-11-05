@@ -1,6 +1,6 @@
 ---
 title: Resources
-description: Free swallowing reference handouts by Denise Mae Chua — muscles of swallowing and the cranial nerves involved in swallowing.
+description: Free swallowing reference handouts by Denise Chua — muscles of swallowing and the cranial nerves involved in swallowing.
 handouts:
   - title: Cranial Nerves for Swallowing Cheatsheet
     file: /files/neuroanatomy-of-swallowing-cranial-nerves.pdf

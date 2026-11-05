@@ -15,7 +15,7 @@ const { Content } = await render(page);
   <section class="hero" aria-labelledby="hero-name">
     <Image
       src={photo}
-      alt="Portrait of Denise Mae Chua"
+      alt="Portrait of Denise Chua"
       class="hero__photo"
       widths={[176, 352]}
       sizes="176px"
@@ -23,7 +23,7 @@ const { Content } = await render(page);
       fetchpriority="high"
     />
     <div class="hero__text">
-      <h1 id="hero-name">{site.shortName}, PhD</h1>
+      <h1 id="hero-name">{site.shortName}, {site.credentials}</h1>
       <p class="hero__title">{site.jobTitle}</p>
       <p class="hero__affil">
         {site.role}, <a href={site.lab.url}>{site.lab.name}</a><br />{site.affiliation.name}

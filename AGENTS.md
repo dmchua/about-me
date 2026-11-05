@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Personal academic website for Denise Mae Chua, PhD (swallowing and dysphagia researcher, HKU). Astro 5 static site, live at https://denisechua.me.
+Personal academic website for Denise Chua, PhD (swallowing and dysphagia researcher, HKU). Astro 5 static site, live at https://denisechua.me.
 
 ## People
 
