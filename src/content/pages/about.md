@@ -2,15 +2,15 @@
 title: About
 description: Denise Chua, PhD, RSLP — speech-language pathologist and swallowing researcher at the Swallowing Research Laboratory, University of Hong Kong.
 ---
-Hi! My name is Denise. I'm a researcher and SLP based in Hong Kong. 🇭🇰 
+Hi! My name is Denise. I'm a researcher and SLP based in Hong Kong. 🇭🇰  
 
 ## My research interest
 
-I am currently part of a project that focuses on improving dysphagia management in community and long-term care settings, with the goal of enhancing early identification, care accessibility, and rehabilitation outcomes for individuals living with swallowing disorders.
+I am currently part of a project that focuses on enhancing swallowing management in community and long-term care settings. Our goal is to strengthen the healthy aging swallow and to improve rehabilitation outcomes for individuals living with dysphagia.
 
 My PhD research examined the effects of swallowing exercises on the neurophysiology of healthy adults using functional near-infrared spectroscopy (fNIRS).
 
-See my [Research](/research/) page for my publications and conference papers.
+See my [Research](/research/) page for our publications and conference papers.
 
 ## My background and experience
 
